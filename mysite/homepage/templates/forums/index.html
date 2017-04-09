@@ -1,0 +1,121 @@
+{% extends 'homepage/base.html' %}
+
+{%block title %}FORUMS-THREADS{% endblock %}
+
+{% block css%}
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'forums/styling.css' %}"/>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Chewy" />
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Gloria+Hallelujah" />
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto+Slab" />
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ruslan+Display " />
+
+
+
+{% endblock %}
+
+
+
+{% block body %}
+
+<div class="content">
+
+    <div class="albums-container container-fluid">
+
+        <!-- Forums Home Page -->
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 style="color:white;font-size:45px;"><center>FORUM</center></h2>
+            </div>
+
+
+    <div>
+
+        <center>
+          <h3  style="color:white;  font-size:35px;">Adding a new forum is now simpler than Wingardium Leviosa!</h3>
+                      <a href="{% url 'forums:create_forum' %}">
+                          <br>
+                        <button type="button" class="btn btn-primary bt" style="  box-shadow: -10px 10px 10px #aaa;
+; background-color:black; padding: 15px;  border:none;">
+                            <span class="glyphicon glyphicon-plus"></span>&nbsp I WANT TO ADD A NEW FORUM
+                        </button>
+                    </a>
+            <br>
+            <br>
+            <h4 style="color:white;font-family:Serif; font-size:28px;"><center style="color:white;">Once a forum is created, it is not associated with any specific wizard because it belongs to the
+        wizarding world as a whole. However, the admin can access the creator's details, so no abusive words or irrelevant
+        content please! Hover on forums to open them!</center></h4>
+
+
+    </center>
+
+        <br><br>
+
+
+
+    </div>
+
+
+
+            {% if forums %}
+                <h3  style="color:white; font-size:45px; font-family:Ruslan Display; "><center>EXISTING THREADS</center></h3>
+                    <br>
+                {% for forum in forums %}
+
+                <!--<div class="col-sm-4 col-lg-4">
+                        <div class="thumbnail">
+            -->
+                                        <div id="f1_container" style="float:left;">
+                    <div id="f1_card" class="shadow">
+                      <div class="front face" style="background-color:#6d6b79;">
+
+
+                            <div class="caption" style="color:#331483">
+                                <h2>Topic: {{ forum.name }}</h2>
+                                <hr>
+                                <br>
+                                <h4>Description: {{forum.description }}</h4>
+                                <br>
+                                <hr>
+                                <br>
+                                <h5 style="font-size:20px;">
+                                    Number of posts:
+                                    {{forum.count}}
+
+                                </h5>
+</div>
+            </div>
+
+
+  <div class="back face center">
+
+                                <!-- View Details -->
+                                <center>
+                                    <div class="bu">
+                                <a href="{% url 'forums:detail' forum.id %}" class="btn btn-primary btn-sm" role="button"
+                                style="padding:20px; font-size:30px;">Open Forum</a>
+   </div>
+    </center>
+
+
+    </div>
+
+                            </div>
+                        </div>
+                    <!--</div>-->
+
+                    {% endfor %}
+            {% else %}
+                <h3><center>Be the first one to create a forum!</center> </h3>
+            {% endif %}
+        <!--</div>-->
+
+    </div>
+
+
+</div>
+
+    <br>
+    <br>
+{% endblock %}

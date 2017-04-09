@@ -1,0 +1,377 @@
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+
+	{% extends 'homepage/base.html' %}
+
+{% load staticfiles %}
+
+	<meta charset="UTF-8">
+	<title>{% block title %}Sorting Quiz{% endblock %}</title>
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=David+Libre|Lobster|Rasa" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {%block css%}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'randomq/style2.css' %}"/>
+    {% endblock %}
+</head>
+
+
+
+
+{% block body %}
+<body>
+
+<div class="content">
+    <hr>
+    <form action="{% url 'randomq:cal' %}" method="post" name="formq">
+    {% csrf_token %}
+    {% if q1 %}
+        <div id="container">
+            <div id="container_body" >
+
+        <div>
+                                <h4>{{ q1.numberr }}/10</h4>
+        <h2 class="quest">{{ q1.questions }}</h2>
+        </div>
+                <div class="s" align="right" >
+            <img src="{{ q1.imgee.url }}" alt="no image" style="width:300;height:100px">
+</div>
+<div  >
+        <input type="checkbox" id="a" name="option"  value="1" onclick="dis()"/>
+        <label >{{ q1.option1 }}</label><br />
+
+        <input type="checkbox" id="b" name="option"   value="2" onclick="diss1()"/>
+        <label>{{ q1.option2 }}</label><br />
+
+        <input type="checkbox" id="c" name="option"  value="3" onclick="diss2()" />
+        <label>{{ q1.option3 }}</label><br />
+        <input type="checkbox" name="option" id="d" value="4"onclick="diss3()" checked/>
+        <label>{{ q1.option4 }}</label><br />
+        </div>
+        <script type="text/javascript">
+function dis(){document.getElementById("d").checked = false;  document.getElementById("b").checked = false; document.getElementById("c").checked = false;}
+function diss1(){  document.getElementById("d").checked = false;  document.getElementById("a").checked = false; document.getElementById("c").checked = false;}
+function diss2(){document.getElementById("d").checked = false;  document.getElementById("a").checked = false; document.getElementById("b").checked = false;}
+function diss3(){  document.getElementById("b").checked = false;  document.getElementById("a").checked = false; document.getElementById("c").checked = false;}
+
+
+        </script>
+      {%endif%}
+</div>
+</div>
+<div>
+
+
+
+</div>
+        {% if q2 %}
+        <div id="container1">
+            <div id="container_body1">
+        <div>
+	    <h4>{{ q2.numberr }}/10</h4>
+            </div>
+                  <div>
+        <h2 class="quest">{{ q2.questions }}</h2>
+        </div>
+
+                          <div class="s" align="right" >
+            <img src="{{ q2.imgee.url }}" alt="no image" style="width:300;height:100px">
+</div>
+
+                              <div>
+        <input type="checkbox" id="a1" name="option"  value="1" onclick="di1()"/>
+        <label >{{ q2.option1 }}</label><br />
+
+        <input type="checkbox" id="b1" name="option"   value="2" onclick="di2()"/>
+        <label>{{ q2.option2 }}</label><br />
+
+        <input type="checkbox" id="c1" name="option"  value="3" onclick="di3()" />
+        <label>{{ q2.option3 }}</label><br />
+        <input type="checkbox" name="option" id="d1" value="4" onclick="di4()" checked/>
+        <label>{{ q2.option4 }}</label><br />
+        <script type="text/javascript">
+function di1(){document.getElementById("d1").checked = false;  document.getElementById("b1").checked = false; document.getElementById("c1").checked = false;}
+function di2(){  document.getElementById("d1").checked = false;  document.getElementById("a1").checked = false; document.getElementById("c1").checked = false;}
+function di3(){document.getElementById("d1").checked = false;  document.getElementById("a1").checked = false; document.getElementById("b1").checked = false;}
+function di4(){  document.getElementById("b1").checked = false;  document.getElementById("a1").checked = false; document.getElementById("c1").checked = false;}
+
+         </script>
+
+{%endif%}
+</div>
+<div>
+
+
+</div>
+</div>
+    {% if q3 %}
+                    <div id="container2">
+
+            <div id="container_body2">
+<div>
+	    <h4>{{ q3.numberr }}/10</h4>
+    </div>
+                <div>
+        <h2 class="quest">{{ q3.questions }}</h2>
+</div>
+                          <div class="s" align="right" >
+            <img src="{{ q3.imgee.url }}" alt="no image" style="width:300;height:100px">
+</div>
+
+                <div>
+        <input type="checkbox" id="a2" name="option"  value="1" onclick="do1()"/>
+        <label >{{ q3.option1 }}</label><br />
+
+        <input type="checkbox" id="b2" name="option"   value="2" onclick="do2()"/>
+        <label>{{ q3.option2 }}</label><br />
+
+        <input type="checkbox" id="c2" name="option"  value="3" onclick="do3()" />
+        <label>{{ q3.option3 }}</label><br />
+        <input type="checkbox" name="option" id="d2" value="4" onclick="do4()" checked/>
+        <label>{{ q3.option4 }}</label><br />
+        <script type="text/javascript">
+function do1(){document.getElementById("d2").checked = false;  document.getElementById("b2").checked = false; document.getElementById("c2").checked = false;}
+function do2(){  document.getElementById("d2").checked = false;  document.getElementById("a2").checked = false; document.getElementById("c2").checked = false;}
+function do3(){document.getElementById("d2").checked = false;  document.getElementById("a2").checked = false; document.getElementById("b2").checked = false;}
+function do4(){  document.getElementById("b2").checked = false;  document.getElementById("a2").checked = false; document.getElementById("c2").checked = false;}
+
+
+         </script>
+
+
+{%endif%}
+</div>
+                </div>
+                <div>
+
+
+
+</div>
+
+    {% if q4 %}
+                                <div id="container3">
+
+                            <div id="container_body3">
+
+	    <h4>{{ q4.numberr }}/10</h4>
+        <h2 class="quest">{{ q4.questions }}</h2>
+          <div class="s" align="right" >
+            <img src="{{ q4.imgee.url }}" alt="no image" style="width:300;height:100px">
+</div>
+
+        <input type="checkbox" id="a3" name="option"  value="1" onclick="dip1()"/>
+        <label >{{ q4.option1 }}</label><br />
+
+        <input type="checkbox" id="b3" name="option"   value="2" onclick="dip2()"/>
+        <label>{{ q4.option2 }}</label><br />
+
+        <input type="checkbox" id="c3" name="option"  value="3" onclick="dip3()" />
+        <label>{{ q4.option3 }}</label><br />
+        <input type="checkbox" name="option" id="d3" value="4" onclick="dip4()" checked/>
+        <label>{{ q4.option4 }}</label><br />
+        <script type="text/javascript">
+ function dip1(){document.getElementById("d3").checked = false;  document.getElementById("b3").checked = false; document.getElementById("c3").checked = false;}
+function dip2(){  document.getElementById("d3").checked = false;  document.getElementById("a3").checked = false; document.getElementById("c3").checked = false;}
+function dip3(){document.getElementById("d3").checked = false;  document.getElementById("a3").checked = false; document.getElementById("b3").checked = false;}
+function dip4(){  document.getElementById("b3").checked = false;  document.getElementById("a3").checked = false; document.getElementById("c3").checked = false;}
+
+        </script>
+
+{%endif%}
+</div>
+                                    </div>
+    {% if q5 %}
+                                <div id="container4">
+
+                            <div id="container_body4">
+
+	    <h4>{{ q5.numberr }}/10</h4>
+        <h2 class="quest">{{ q5.questions }}</h2>
+          <div class="s" align="right" >
+            <img src="{{ q5.imgee.url }}" alt="no image" style="width:300;height:100px">
+</div>
+
+        <input type="checkbox" id="a4" name="option"  value="1" onclick="i1()"/>
+        <label >{{ q5.option1 }}</label><br />
+
+        <input type="checkbox" id="b4" name="option"   value="2" onclick="i2()"/>
+        <label>{{ q5.option2 }}</label><br />
+
+        <input type="checkbox" id="c4" name="option"  value="3" onclick="i3()" />
+        <label>{{ q5.option3 }}</label><br />
+        <input type="checkbox" name="option" id="d4" value="4" onclick="i4()" checked/>
+        <label>{{ q5.option4 }}</label><br />
+        <script type="text/javascript">
+ function i1(){document.getElementById("d4").checked = false;  document.getElementById("b4").checked = false; document.getElementById("c4").checked = false;}
+function i2(){  document.getElementById("d4").checked = false;  document.getElementById("a4").checked = false; document.getElementById("c4").checked = false;}
+function i3(){document.getElementById("d4").checked = false;  document.getElementById("a4").checked = false; document.getElementById("b4").checked = false;}
+function i4(){  document.getElementById("b4").checked = false;  document.getElementById("a4").checked = false; document.getElementById("c4").checked = false;}
+        </script>
+{%endif%}
+</div>
+                                    </div>
+    {% if q6 %}
+                                <div id="container5">
+
+                            <div id="container_body5">
+
+	    <h4>{{ q6.numberr }}/10</h4>
+        <h2 class="quest">{{ q6.questions }}</h2>
+          <div class="s" align="right" >
+            <img src="{{ q6.imgee.url }}" alt="no image" style="width:300;height:100px">
+</div>
+
+        <input type="checkbox" id="a5" name="option"  value="1" onclick="s5()"/>
+        <label >{{ q6.option1 }}</label><br />
+
+        <input type="checkbox" id="b5" name="option"   value="2" onclick="is5()"/>
+        <label>{{ q6.option2 }}</label><br />
+
+        <input type="checkbox" id="c5" name="option"  value="3" onclick="dis5()" />
+        <label>{{ q6.option3 }}</label><br />
+        <input type="checkbox" name="option" id="d5" value="4" onclick="diss5()" checked/>
+        <label>{{ q6.option4 }}</label><br />
+        <script type="text/javascript">
+ function s5(){document.getElementById("d5").checked = false;  document.getElementById("b5").checked = false; document.getElementById("c5").checked = false;}
+function is5(){  document.getElementById("d5").checked = false;  document.getElementById("a5").checked = false; document.getElementById("c5").checked = false;}
+function dis5(){document.getElementById("d5").checked = false;  document.getElementById("a5").checked = false; document.getElementById("b5").checked = false;}
+function diss5(){  document.getElementById("b5").checked = false;  document.getElementById("a5").checked = false; document.getElementById("c5").checked = false;}
+        </script>
+{%endif%}
+</div>
+                                    </div>
+                        {% if q7 %}
+                                <div id="container6">
+
+                            <div id="container_body6">
+
+	    <h4>{{ q7.numberr }}/10</h4>
+        <h2 class="quest">{{ q7.questions }}</h2>
+          <div class="s" align="right" >
+            <img src="{{ q7.imgee.url }}" alt="no image" style="width:300;height:100px">
+</div>
+
+        <input type="checkbox" id="a6" name="option"  value="1" onclick="y1()"/>
+        <label >{{ q7.option1 }}</label><br />
+
+        <input type="checkbox" id="b6" name="option"   value="2" onclick="y2()"/>
+        <label>{{ q7.option2 }}</label><br />
+
+        <input type="checkbox" id="c6" name="option"  value="3" onclick="y3()" />
+        <label>{{ q7.option3 }}</label><br />
+        <input type="checkbox" name="option" id="d6" onclick="y4()" value="4" checked/>
+        <label>{{ q7.option4 }}</label><br />
+        <script type="text/javascript">
+ function y1(){document.getElementById("d6").checked = false;  document.getElementById("b6").checked = false; document.getElementById("c6").checked = false;}
+function y2(){  document.getElementById("d6").checked = false;  document.getElementById("a6").checked = false; document.getElementById("c6").checked = false;}
+function y3(){document.getElementById("d6").checked = false;  document.getElementById("a6").checked = false; document.getElementById("b6").checked = false;}
+function y4(){  document.getElementById("b6").checked = false;  document.getElementById("a6").checked = false; document.getElementById("c6").checked = false;}
+        </script>
+{%endif%}
+</div>
+                                    </div>
+    {% if q8 %}
+                                <div id="container7">
+
+                            <div id="container_body7">
+
+	    <h4>{{ q8.numberr }}/10</h4>
+        <h2 class="quest">{{ q8.questions }}</h2>
+          <div class="s" align="right" >
+            <img src="{{ q8.imgee.url }}" alt="no image" style="width:300;height:100px">
+</div>
+
+        <input type="checkbox" id="a7" name="option"  value="1" onclick="t7()"/>
+        <label >{{ q8.option1 }}</label><br />
+
+        <input type="checkbox" id="b7" name="option"   value="2" onclick="t8()"/>
+        <label>{{ q8.option2 }}</label><br />
+
+        <input type="checkbox" id="c7" name="option"  value="3" onclick="t9()" />
+        <label>{{ q8.option3 }}</label><br />
+        <input type="checkbox" name="option" id="d7" value="4" onclick="t6()" checked/>
+        <label>{{ q8.option4 }}</label><br />
+        <script type="text/javascript">
+ function t7(){document.getElementById("d7").checked = false;  document.getElementById("b7").checked = false; document.getElementById("c7").checked = false;}
+function t8(){  document.getElementById("d7").checked = false;  document.getElementById("a7").checked = false; document.getElementById("c7").checked = false;}
+function t9(){document.getElementById("d7").checked = false;  document.getElementById("a7").checked = false; document.getElementById("b7").checked = false;}
+function t6(){  document.getElementById("b7").checked = false;  document.getElementById("a7").checked = false; document.getElementById("c7").checked = false;}
+        </script>
+{%endif%}
+</div>
+                                    </div>
+    {% if q9 %}
+                                <div id="container8">
+
+                            <div id="container_body9">
+
+	    <h4>{{ q9.numberr }}/10</h4>
+        <h2 class="quest">{{ q9.questions }}</h2>
+          <div class="s" align="right" >
+            <img src="{{ q9.imgee.url }}" alt="no image" style="width:300;height:100px">
+</div>
+
+        <input type="checkbox" id="a8" name="option"  value="1" onclick="s6()"/>
+        <label >{{ q9.option1 }}</label><br />
+
+        <input type="checkbox" id="b8" name="option"   value="2" onclick="s7()"/>
+        <label>{{ q9.option2 }}</label><br />
+
+        <input type="checkbox" id="c8" name="option"  value="3" onclick="s8()" />
+        <label>{{ q9.option3 }}</label><br />
+        <input type="checkbox" name="option" id="d8" value="4" onclick="s9()" checked/>
+        <label>{{ q9.option4 }}</label><br />
+        <script type="text/javascript">
+ function s6(){document.getElementById("d8").checked = false;  document.getElementById("b8").checked = false; document.getElementById("c8").checked = false;}
+function s7(){  document.getElementById("d8").checked = false;  document.getElementById("a8").checked = false; document.getElementById("c8").checked = false;}
+function s8(){document.getElementById("d8").checked = false;  document.getElementById("a8").checked = false; document.getElementById("b8").checked = false;}
+function s9(){  document.getElementById("b8").checked = false;  document.getElementById("a8").checked = false; document.getElementById("c8").checked = false;}
+        </script>
+{%endif%}
+</div>
+                                    </div>
+    {% if q10 %}
+                                <div id="container9">
+
+                            <div id="container_body10">
+
+	    <h4>{{ q10.numberr }}/10</h4>
+        <h2 class="quest">{{ q10.questions }}</h2>
+          <div class="s" align="right" >
+            <img src="{{ q10.imgee.url }}" alt="no image" style="width:300;height:100px">
+</div>
+
+        <input type="checkbox" id="a9" name="option"  value="1" onclick="e6()"/>
+        <label >{{ q10.option1 }}</label><br />
+
+        <input type="checkbox" id="b9" name="option"   value="2" onclick="e7()"/>
+        <label>{{ q10.option2 }}</label><br />
+
+        <input type="checkbox" id="c9" name="option"  value="3" onclick="e8()" />
+        <label>{{ q10.option3 }}</label><br />
+        <input type="checkbox" name="option" id="d9" value="4" onclick="e9()" checked/>
+        <label>{{ q10.option4 }}</label><br />
+        <script type="text/javascript">
+ function e6(){document.getElementById("d9").checked = false;  document.getElementById("b9").checked = false; document.getElementById("c9").checked = false;}
+function e7(){  document.getElementById("d9").checked = false;  document.getElementById("a9").checked = false; document.getElementById("c9").checked = false;}
+function e8(){document.getElementById("d9").checked = false;  document.getElementById("a9").checked = false; document.getElementById("b9").checked = false;}
+function e9(){  document.getElementById("b9").checked = false;  document.getElementById("a9").checked = false; document.getElementById("c9").checked = false;}
+        </script>
+{%endif%}
+</div>
+                                    </div>
+    <input type="submit" id="myBtn" value="Submit" class="button" style="margin-left:40%"/>
+
+</form>
+    </div>
+</body>
+  {%endblock%}
+
+</html>
+       <!-- <input type="radio" name="option" value="option1" class="i">{{ question.option1 }}</input><br>
+        <input type="radio" name="option" value="option2" class="i">{{ question.option2 }}</input><br>
+        <input type="radio" name="option" value="option3" class="i">{{ question.option3 }}</input><br>
+        <img src="{% static '{{ question.imgee }}' %}" alt="h">-->

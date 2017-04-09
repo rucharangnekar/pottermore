@@ -1,0 +1,145 @@
+<html lang="en">
+<head>
+    {% load staticfiles %}
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'homepage/style1.css' %}"/>
+	
+	<title>{% block title %}home {% endblock %} </title>
+	{% block css %} {% endblock %}
+</head>
+<body>
+<div class="header">
+<div class="whole">
+<div class="first" align="left" ><button type="button" id="PotterHead"><img src="{% static 'homepage/images/emblem.png' %}" alt="" class="img1">
+</img></button></div>
+<div class="second" align="center" ><a href="{% url 'homepage:index' %}" class="potter"><button type="button" id="PotterHead" class="second">PotterHead</button></a></div>
+	<div class="third" align="center">
+		<div class="dropdown" >
+		<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="profile">Profile
+		<span class="caret"></span></button>
+		  <ul class="dropdown-menu">
+			<li><a href="{% url 'homepage:view_profile' %}">Profile</a></li>
+			<li><a href="{% url 'homepage:login' %}">
+				{% if request.user.is_authenticated %}
+					Logout
+				{% else %}
+					Login
+				{% endif %}
+			</a></li>
+			<li><a href="{% url 'homepage:reg' %}">Sign Up</a></li>
+		  </ul>
+		</div>
+	</div>
+</div>
+{% if request.user.is_authenticated %}
+<div class="nav">
+<ul class="topnav" id="myTopnav">
+<div class="col-sm-9 col-md-8">
+	<li><a  href="{% url 'hogwarts:index' %}" class="ab ">Explore the Story</a></li>
+	<li><a  href="{% url 'randomq:mainquiz' %}" class="ab ">Quiz</a></li>
+	<li><a  href="{% url 'randomq:basic' %}" class="ab ">Get Sorted</a></li>
+	<li><a href="{% url 'news:index' %}" class="ab">News</a></li>
+	<li><a href="{% url 'forums:index' %}" class="ab">Forum</a></li>
+	<li><a href="{% url 'randomq:leader' %}" class="ab">LeaderBoard</a></li>
+	<li><a href="{% url 'homepage:login' %}" class="ab">Logout</a></li>
+	<li class="icon">    <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a></li>
+</div>
+</ul>
+{% else %}
+<ul class="topnav" id="Topnavbar">
+<div class="col-sm-9 col-md-8">
+	<li><a  href="{% url 'hogwarts:index' %}" class="ab ">Explore the Story</a></li>
+	<li><a  href="{% url 'randomq:mainquiz' %}" class="ab ">Quiz</a></li>
+	<li><a  href="{% url 'randomq:basic' %}" class="ab ">Get Sorted</a></li>
+	<li><a href="{% url 'news:index' %}" class="ab">News</a></li>
+	<li><a href="{% url 'forums:index' %}" class="ab">Forum</a></li>
+	<li><a href="{% url 'randomq:leader' %}" class="ab">LeaderBoard</a></li>
+	<li><a href="{% url 'homepage:login' %}" class="ab">Login</a></li>
+	<li class="icon">    <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a></li>
+</div>
+</ul>
+{% endif %}
+</div>
+</div>
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+function myFunction() {
+    var x = document.getElementById("Topnavbar");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+
+	<!-- <nav class="navbar navbar-inverse">
+<div class="container-fluid">
+	<div class="navbar-header">
+
+		<button type="button" class="navbar-toggle" data-toggle="collapse"  data-target="#topNavBar">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		</button>
+						<a class="navbar-brand" href="{% url 'homepage:index' %}">Vibr</a>
+
+</div>
+<div class="collapse navbar-collapse" id="topNavBar">
+	<ul class="nav navbar-nav">
+		<li class="">
+		<a href="#">
+			About Us
+		</a>
+		</li>
+				<li class="">
+		<a href="#">
+        &nbsp;&nbsp;Quiz
+		</a>
+		</li>
+	</ul>
+	<form class="navbar-form navbar-left" role="search" method="get" action="#">
+		<div class="form-group">
+			<input type="text" name="q" value="" class="form-control">
+		</div>
+		<button type="submit" class="btn btn-search">Search</button>
+	</form>
+		<ul class="nav navbar-nav navbar-right">
+		<li class="">
+		<a href="#">
+			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;
+			Add Albums
+		</a>
+		</li>
+				<li class="">
+		<a href="#">
+			<span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp;
+			logout
+		</a>
+		</li>
+	</ul>
+
+</nav> -->
+
+{% block body %}
+{% endblock %}
+<div class="push">
+	<div class="end"><a  href="{% url 'homepage:about' %}" class="ab">About</a></div>
+	<div class="end"><a href=" {% url 'homepage:faq' %} " class="ab">Faqs</a></div>
+	<div class="end"><a href="{% url 'homepage:tnc' %} " class="ab">Terms and Conditions</a></div>
+</div>
+</body>
+</html>
+	

@@ -1,0 +1,160 @@
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+
+	{% extends 'homepage/base.html' %}
+
+{% load staticfiles %}
+
+	<meta charset="UTF-8">
+	<title>{% block title %}Sorting Quiz{% endblock %}</title>
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {%block css%}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'randomq/style2.css' %}"/>
+    {% endblock %}
+{% block body %}
+    <div class="content">
+    <style>
+        h3{
+        text-align:center;
+    text-shadow: 1px 1px 3px #08A5A2;
+
+}
+
+<script>
+    body{
+height:2000px;
+}
+</script>
+
+p{
+    text-align:center;
+    font-size:30px;
+    text-shadow: 1px 1px 3px yellow;
+
+}
+        h1{
+        text-align:center;
+    color: pink;
+    text-shadow: 1px 1px 2px black, 0 0 25px #B26A89, 0 0 5px #DA035E;
+
+
+}
+
+    </style>
+      {% if flag %}
+        <form action="#" method="post" name="formq1">
+        {% csrf_token %}
+        <h1>Congratulations,You got sorted in {{ sort }}</h1>
+
+        <h3>You scored:{{ total_score }}</h3>
+        <!--<h2>You didnt answer the following questions</h2>
+        {% for q in q1 %}
+            {% if  q %}
+            <h4>{{ q.numberr }}/10</h4>
+            <h3 class="quest" >{{ q.questions }}</h3>
+
+            <h3>Correct answer is option no:{{q.answer}}:{{q.tanswer}}</h3>
+
+            <img src="{{ q.imgee.url }}" alt="no image" width="100px" height="100px"  border="1px" >
+
+            {% endif %}
+        {% endfor %}
+        {% for q in q2 %}
+            {% if  q %}
+            <h4>{{ q.numberr }}/10</h4>
+            <h3 class="quest">{{ q.questions }}</h3>
+
+            <h3>Correct answer is option no:{{q.answer}}:{{q.tanswer}}</h3>
+
+            <img src="{{ q.imgee.url }}" alt="no image" width="100px" height="100px"  border="1px" >
+            {% endif %}
+        {% endfor %}
+        {% for q in q3 %}
+            {% if  q %}
+            <h4>{{ q.numberr }}/10</h4>
+            <h3 class="quest">{{ q.questions }}</h3>
+            <h3>Correct answer is option no:{{q.answer}}:{{q.tanswer}}</h3>
+
+            <img src="{{ q.imgee.url }}" alt="no image" width="100px" height="100px"  border="1px" >
+            {% endif %}
+        {% endfor %}
+        {% for q in q4 %}
+            {% if  q %}
+            <h4>{{ q.numberr }}/10</h4>
+            <h3 class="quest">{{ q.questions }}</h3>
+            <h3>Correct answer is option no:{{q.answer}}:{{q.tanswer}}</h3>
+
+            <img src="{{ q.imgee.url }}" alt="no image" width="100px" height="100px"  border="1px" >
+            {% endif %}
+        {% endfor %}
+        {% for q in q5 %}
+            {% if  q %}
+            <h4>{{ q.numberr }}/10</h4>
+            <h3 class="quest">{{ q.questions }}</h3>
+            <h3>Correct answer is option no:{{q.answer}}:{{q.tanswer}}</h3>
+
+            <img src="{{ q.imgee.url }}" alt="no image" width="100px" height="100px"  border="1px" >
+            {% endif %}
+        {% endfor %}
+        {% for q in q6 %}
+            {% if  q %}
+            <h4>{{ q.numberr }}/10</h4>
+            <h3 class="quest">{{ q.questions }}</h3>
+            <h3>Correct answer is option no:{{q.answer}}:{{q.tanswer}}</h3>
+
+            <img src="{{ q.imgee.url }}" alt="no image" width="100px" height="100px"  border="1px" >
+            {% endif %}
+        {% endfor %}
+        {% for q in q7 %}
+            {% if  q %}
+            <h4>{{ q.numberr }}/10</h4>
+            <h3 class="quest">{{ q.questions }}</h3>
+            <h3>Correct answer is option no:{{q.answer}}:{{q.tanswer}}</h3>
+
+            <img src="{{ q.imgee.url }}" alt="no image" width="100px" height="100px"  border="1px" >
+            {% endif %}
+        {% endfor %}
+        {% for q in q8 %}
+            {% if  q %}
+            <h4>{{ q.numberr }}/10</h4>
+            <h3 class="quest">{{ q.questions }}</h3>
+            <h3>Correct answer is option no:{{q.answer}}:{{q.tanswer}}</h3>
+
+            <img src="{{ q.imgee.url }}" alt="no image" width="100px" height="100px"  border="1px" >
+            {% endif %}
+        {% endfor %}
+        {% for q in q9 %}
+            {% if  q %}
+            <h4>{{ q.numberr }}/10</h4>
+            <h3 class="quest">{{ q.questions }}</h3>
+            <h3>Correct answer is option no:{{q.answer}}:{{q.tanswer}}</h3>
+
+            <img src="{{ q.imgee.url }}" alt="no image" width="100px" height="100px"  border="1px" >
+            {% endif %}
+        {% endfor %}
+        {% for q in q10 %}
+            {% if  q %}
+            <h4>{{ q.numberr }}/10</h4>
+            <h3 class="quest">{{ q.questions }}</h3>
+            <h3>Correct answer is option no:{{q.answer}}:{{q.tanswer}}</h3>
+
+            <img src="{{ q.imgee.url }}" alt="no image" width="100px" height="100px"  border="1px" >
+            {% endif %}
+        {% endfor %}
+
+
+
+
+
+
+
+--> <a href="{% url 'homepage:index' %}"><img src="{% static 'homepage/images/train ticket.jpeg' %}" style="width:35%;height:20%;margin-left:35%"></a>
+    <h4 style="font-size:30px;">Click on the ticket to begin your journey through hogwarts</h4>
+        </form>
+      {% endif %}
+        </div>
+{% endblock %}

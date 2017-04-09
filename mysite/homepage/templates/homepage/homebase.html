@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+    {% load staticfiles %}
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'homepage/style.css' %}"/>
+	
+	<title>{% block title %}home {% endblock %} </title>
+	{% block css %} {% endblock %}
+</head>
+<body> 
+<div class="whole">
+<div class="first" align="left" ><button type="button" id="PotterHead"><img src="{% static 'homepage/images/emblem.png' %}" alt="" class="img1">
+</img></button></div>
+<div class="second" align="center" ><a href="{% url 'homepage:index' %}" class="potter"><button type="button" id="PotterHead" class="second">PotterHead</button></a></div>
+	<div class="third" align="center">
+		<div class="dropdown">
+		<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="profile">Profile
+		<span class="caret"></span></button>
+		  <ul class="dropdown-menu" >
+			<li ><a href="{% url 'homepage:view_profile' %}">Profile</a></li>
+			<li><a href="{% url 'homepage:login' %}">
+				{% if request.user.is_authenticated %}
+					Logout
+				{% else %}
+					Login
+				{% endif %}
+			</a></li>
+			<li><a href="{% url 'homepage:reg' %}">Sign Up</a></li>
+		  </ul>
+		</div>		
+	</div>
+</div>
+{% if request.user.is_authenticated %}
+<div class="hey col-sm-9 col-md-8">
+<ul class="topnav" id="myTopnav">
+	<li><a href="{% url 'hogwarts:index' %}" class="ab">ExploreTheStory</a></li>
+	<li><a  href="{% url 'randomq:mainquiz' %}" class="ab ">Quiz</a></li>
+	<li><a  href="{% url 'randomq:basic' %}" class="ab ">Get Sorted</a></li>
+	<li><a href="{% url 'news:index' %}" class="ab">News</a></li>
+	<li><a href="{% url 'forums:index' %}" class="ab">Forum</a></li>
+	<li><a href="{% url 'randomq:leader' %}" class="ab">LeaderBoard</a></li>
+		<li><a href="{% url 'homepage:login' %}" class="ab">Logout</a></li>
+
+	<li class="icon">    <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a></li>
+</ul>
+</div>
+{% else %}
+<div class="hey col-sm-9 col-md-8">
+<ul class="topnav" id="myNavBar">
+	<li><a href="{% url 'hogwarts:index' %}" class="ab">ExploreTheStory</a></li>
+	<li><a  href="{% url 'randomq:mainquiz' %}" class="ab ">Quiz</a></li>
+	<li><a  href="{% url 'randomq:basic' %}" class="ab ">Get Sorted</a></li>
+	<li><a href="{% url 'news:index' %}" class="ab">News</a></li>
+	<li><a href="{% url 'forums:index' %}" class="ab">Forum</a></li>
+	<li><a href="{% url 'randomq:leader' %}" class="ab">LeaderBoard</a></li>
+		<li><a href="{% url 'homepage:login' %}" class="ab">Login</a></li>
+	<li class="icon">    <a href="javascript:void(0);" style="font-size:15px;" onclick="mFunction()">☰</a></li>
+</ul>
+</div>
+{% endif %}
+<div class="bar2"></div>
+<script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+function mFunction() {
+    var x = document.getElementById("myNavBar");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+{% block body %}
+{% endblock %}
+</body>
+</html>
+	

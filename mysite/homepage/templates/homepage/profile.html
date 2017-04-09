@@ -1,0 +1,149 @@
+{% extends 'homepage/base.html' %}
+
+{%block title%}
+Your Profile
+{% endblock %}
+
+{%block css%}
+{%load staticfiles%}
+<link rel="stylesheet" type="text/css" href="{% static 'homepage/editing.css' %}"/>
+
+
+{% endblock %}
+
+
+{%block body%}
+<div class="content">
+<div class="container">
+    <div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic">
+
+
+                    {% if not pic.checker %}
+                        {%if  not k%}
+
+                             <img src = "{% static 'homepage/images/icon.png' %}"  class="img-circle"
+                                 style="width:225px; height:225px; margin-left:15px;">
+                        {%endif%}
+                    {%endif%}
+
+                    {%if k%}
+                        {%for i in pic%}
+                            <img src = "{{ i.profile_pic.url }}" class="img-circle"
+                                 style="width:225px; height:225px; margin-left:15px;">
+                        {%endfor%}
+                    {%endif%}
+
+
+				</div>
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						{{cu.first_name}} {{cu.last_name}}
+					</div>
+					<div class="profile-username">
+						{{cu.username}}
+					</div>
+
+                    <div class="profile-house">
+						{%for i in info%}
+                            {{i.house}}
+                        {%endfor%}
+					</div>
+
+
+                    <div class="profile-mail">
+						Registered email: {{cu.email}}
+					</div>
+                <!--{% if fl %}
+                    <h3>These posts have been detected as spurious by the users</h3>
+                    {% for r in reports %}
+                        <h2>{{ r.post }}</h2>
+                    {% endfor %}
+                {% endif %}-->
+
+				</div>
+				<!-- END SIDEBAR USER TITLE -->
+				<!-- SIDEBAR BUTTONS -->
+				<div class="profile-userbuttons">
+                              <a href="{% url 'homepage:edit_profile' %}">
+                        <button type="button" class="btn btn-primary" style="margin-bottom:15px;">
+                            <span class="glyphicon glyphicon-pencil"></span>CHANGE PROFILE PICTURE
+                        </button>
+            </a>
+                    <a href ="{% url 'randomq:leader' %}">
+                    <button type="button" class="btn btn-primary btn-sm">Check position on leaderboard</button>
+                    </a>
+
+                </div>
+				<!-- END SIDEBAR BUTTONS -->
+				<!-- SIDEBAR MENU -->
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<li class="active">
+							<a href="#">
+							<i class="glyphicon glyphicon-home"></i>
+							Overview </a>
+						</li>
+						<li>
+							<a href="{% url 'homepage:account_settings' %}">
+							<i class="glyphicon glyphicon-user"></i>
+							Change Password </a>
+						</li>
+					</ul>
+				</div>
+				<!-- END MENU -->
+			</div>
+		</div>
+		<div class="col-md-9">
+            <div class="profile-content">
+        {% if all_threads %}
+            <table>
+
+              <tr>
+                <th>FORUM NAME</th>
+                <th>YOUR POST</th>
+                <th>DATE</th>
+                <th>Likes</th>
+                <th>Reported error</th>
+              </tr>
+
+            {%for i in all_threads %}
+                {% if i.user_name == cu.username %}
+                <tr>
+                <td>{{i.forum_no}}</td>
+                <td>{{i.post}}</td>
+                <td>{{i.date}} {{i.time}}</td>
+                <td>{{ i.like }}</td>
+                    {% if i.flag %}
+                        {% if i.delflag %}
+                            <td>Deleted</td>
+                        {% else %}
+                            <td>Spam</td>
+                        {% endif %}
+                    {%else%}
+                        <td>No reported content</td>
+                    {% endif %}
+                </tr>
+
+                {%endif%}
+            {%endfor%}
+
+            </table>
+        {% else %}
+            <h2>You havent had any discussions in the fourm</h2>
+        {% endif %}
+
+            </div>
+		</div>
+	</div>
+</div>
+
+
+<br><br><br>
+</div>
+{%endblock%}

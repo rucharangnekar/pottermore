@@ -1,0 +1,46 @@
+{% extends 'homepage/base.html' %}
+
+{% block title %}
+
+EDIT PROFILE
+
+{% endblock %}
+
+{% block css%}
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'homepage/styling.css' %}"/>
+
+{% endblock %}
+
+
+
+{% block body %}
+<div class="content">
+<div class="container-fluid">
+
+
+        <div class="col-sm-12 col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Edit profile</h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'homepage/form_template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+</div>
+{% endblock %}

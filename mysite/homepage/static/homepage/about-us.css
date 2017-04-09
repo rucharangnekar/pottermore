@@ -1,0 +1,29 @@
+body{
+	background-color:#e6fff3;
+	height:1000px;
+}
+
+#about-us{display:block; width:100%; line-height:1.6em;}
+#about-intro p{
+    text-align:center;
+    font-size:20px;
+	display:block;
+	padding:20px 20px 20px 20px;
+	margin-top:20px;
+	margin-bottom:25px;
+	background-color:#ffb3ff;
+}
+
+.list{margin:0; padding:0; list-style:none;}
+.list li{margin-bottom:30px;}
+.list li figure{position:relative; text-align:center;}
+.list li figure img{padding:9px; border:1px solid #CCCCCC;}
+.list li figure figcaption{display:none; position:absolute; top:10px; left:10px; width:280px; height:200px; overflow:hidden; color:#FFFFFF; background-color:#000000; background:hsla(0, 0%, 0%, 0.8);}
+.list li:hover figure figcaption{display:block;}
+.list li figure figcaption p{margin:15px 15px 0 15px; padding:0; font-size:50px;}
+.list li figure figcaption p:first-child{margin-top:35px;}
+.list li figure figcaption .team_name{font-weight:bold;}
+.list li figure figcaption .team_title{margin:0; font-size:11px; line-height:normal;}
+a{
+	outline:0;
+}

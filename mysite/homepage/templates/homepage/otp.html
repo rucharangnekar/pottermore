@@ -1,0 +1,29 @@
+{% extends 'homepage/base.html' %}
+{% load staticfiles %}
+{% block title %}PotterHead-Login{% endblock %}	
+{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'homepage/login.css' %}">
+{% endblock %}
+{% block body %}
+<div class="content">
+
+	<div class="panel panel-default">
+                <div class="panel-body">
+
+	<form action="{% url 'homepage:activatt'%}" method="POST" enctype="multipart/form-data" id="form">{% csrf_token %}
+
+	<div class="user">
+		Username: <input type="text" name="user1" id="id_username" placeholder="Username"  required style="width:50%;"></input><br>
+	</div>
+	<div class="otp">
+		OTP: <input type="text" name="otp" id="id_password" placeholder="OTP"  required style="width:50%;"></input><br>
+	</div>
+	<button type="submit" class="button">SUBMIT</button>
+</form>
+</div>
+		</div>
+
+</div>
+{% endblock %}
+
+

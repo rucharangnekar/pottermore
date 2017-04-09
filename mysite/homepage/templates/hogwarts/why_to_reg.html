@@ -1,0 +1,75 @@
+
+{%extends 'homepage/base.html'%}
+
+{%block title%}WHY TO REGISTER {%endblock%}
+
+{%block css%}
+{%load staticfiles%}
+
+<link rel="stylesheet" type="text/css" href="{% static 'hogwarts/acc.css' %}"/>
+
+{%endblock%}
+
+{%block body%}
+
+<div class="content">
+<body style="background-color: black;">
+
+<h1 style="color:white;">Why should you register?</h1>
+<div class="accordion">
+  <ul>
+    <li>
+      <div> <a href="{% url 'forums:index' %}">
+        <h2>Forums</h2>
+        <p>Get your questions answered and start discussions with other Potterheads!</p>
+        </a> </div>
+    </li>
+    <li>
+      <div> <a href="{% url 'randomq:q' %}">
+        <h2>Get Sorted</h2>
+        <p>Get sorted in one of the Four Houses and speak to other members of the same house! </p>
+        </a> </div>
+    </li>
+    <li>
+      <div> <a href="{% url 'randomq:mainquiz' %}">
+        <h2>Quizzes</h2>
+        <p>Play quizzes on a range of topics and shoot to the top of the Leaderboard!</p>
+        </a> </div>
+    </li>
+    <li>
+      <div> <a href="{% url 'randomq:mainquiz' %}">
+        <h2>Bonus Level</h2>
+        <p>Play the extremely difficult bonus level to reach the highest level of mastery an PotterHead can atain!</p>
+        </a> </div>
+    </li>
+    <li>
+      <div> <a href="{%url 'homepage:view_profile' %}">
+        <h2>Profile</h2>
+        <p>Keep track of your scores and posts!</p>
+        </a> </div>
+    </li>
+    <li>
+      <div> <a href="{%url 'randomq:leader' %}">
+        <h2>Are you at the top?</h2>
+        <p>Find where you stand!</p>
+        </a> </div>
+    </li>
+  </ul>
+</div>
+
+<center><a href="{% url 'homepage:reg' %}"><h2 style="text-align:center;color: pink;text-shadow: 1px 1px 2px black, 0 0 25px #B26A89, 0 0 5px #DA035E;">Register</h2></a></center>
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46156385-1', 'cssscript.com');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+
+{%endblock%}

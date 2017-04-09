@@ -1,0 +1,125 @@
+{% extends 'homepage/base.html' %}
+
+{%block title%}
+Account Settings
+{% endblock %}
+
+{%block css%}
+{%load staticfiles%}
+<link rel="stylesheet" type="text/css" href="{% static 'homepage/editing.css' %}"/>
+
+
+{% endblock %}
+
+
+{%block body%}
+<body style="background-color: #F1F3FA;">
+<div class="content container">
+    <div class="row profile">
+		<div class="col-md-3">
+			<div class="profile-sidebar">
+				<!-- SIDEBAR USERPIC -->
+				<div class="profile-userpic">
+
+
+                    {% if not pic.checker %}
+                        {%if  not k%}
+
+                             <img src = "{% static 'homepage/images/icon.png' %}"  class="img-circle"
+                                 style="width:225px; height:225px; margin-left:15px;">
+                        {%endif%}
+                    {%endif%}
+
+                    {%if k%}
+                        {%for i in pic%}
+                            <img src = "{{ i.profile_pic.url }}" class="img-circle"
+                                 style="width:225px; height:225px; margin-left:15px;">
+                        {%endfor%}
+                    {%endif%}
+
+
+				</div>
+				<!-- END SIDEBAR USERPIC -->
+				<!-- SIDEBAR USER TITLE -->
+				<div class="profile-usertitle">
+					<div class="profile-usertitle-name">
+						{{cu.first_name}} {{cu.last_name}}
+					</div>
+					<div class="profile-username">
+						{{cu.username}}
+					</div>
+
+                    <div class="profile-house">
+						{%for i in info%}
+                            {{i.house}}
+                        {%endfor%}
+					</div>
+
+
+                    <div class="profile-mail">
+						Registered email: {{cu.email}}
+					</div>
+
+				</div>
+				<!-- END SIDEBAR USER TITLE -->
+				<!-- SIDEBAR BUTTONS -->
+				<div class="profile-userbuttons">
+                              <a href="{% url 'homepage:edit_profile' %}">
+                        <button type="button" class="btn btn-primary" style="margin-bottom:15px;">
+                            <span class="glyphicon glyphicon-pencil"></span>EDIT PROFILE
+                        </button>
+            </a>
+                    <a href ="{% url 'randomq:leader' %}">
+                    <button type="button" class="btn btn-primary btn-sm">Check position on leaderboard</button>
+                    </a>
+
+                </div>
+				<!-- END SIDEBAR BUTTONS -->
+				<!-- SIDEBAR MENU -->
+				<div class="profile-usermenu">
+					<ul class="nav">
+						<li>
+							<a href="{%url 'homepage:view_profile'%}">
+							<i class="glyphicon glyphicon-home"></i>
+							Overview </a>
+						</li>
+						<li class="active">
+							<a href="{% url 'homepage:account_settings' %}">
+							<i class="glyphicon glyphicon-user"></i>
+							Account Settings </a>
+						</li>
+					</ul>
+				</div>
+				<!-- END MENU -->
+			</div>
+		</div>
+		<div class="col-md-9">
+
+
+
+            <div class="profile-content">
+
+            <h3>Change password:</h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'forums/form_template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+{%endblock%}

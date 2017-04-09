@@ -1,0 +1,46 @@
+{% extends 'homepage/base.html' %}
+
+{% block body %}
+<div class="container-fluid posts-container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <ul class="nav nav-pills" style="margin-bottom: 10px;">
+                <li role="presentation" {% if filter_by == 'all' %}class="active"{% endif %}><a href="{% url 'forums:posts' 'all' %}">View All Forums</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-12">
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Post</th>
+                                <th>Username</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in post_list %}
+                                <tr>
+                                    <td>{{ i.post }}</td>
+                                    <td>{{ i.current_user }}</td>
+
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

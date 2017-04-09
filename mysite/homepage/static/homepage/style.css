@@ -1,0 +1,342 @@
+.whole{
+	color:white;
+	font-family:'Pacifico',cursive;
+	position: relative;
+	top:0px;
+	z-index:20;
+}
+
+.bar2{
+	opacity:.5;
+    background-color: #333;
+	height:53px;
+	position:relative;
+	z-index:19;
+	width:100%;
+}
+
+.topnav{
+	width:100%;
+	font-weight:bold;
+	height:80px;
+	z-index:800;
+	position:relative;
+	top:0px;
+	color:white;
+}
+
+#PotterHead{
+	background-color:inherit;
+	padding: 3px 3px 3px 3px;
+	border:0;
+	color:white;
+	font-size:100%;
+}
+
+#PotterHead:hover{
+	text-decoration:none;
+	text-shadow: 4px 4px 6px red;
+}
+
+.img1{
+	height:50%;
+	width:50%;
+}
+
+.first{
+	height:80%;
+	float:left;
+	width:36%;
+	padding-left:10px;
+}
+
+.second{
+	height:100%;
+	display:inline;
+}
+
+.third{
+	height:100%;
+	float:right;
+}
+
+.dropdown {
+    position: relative;
+	right:30%;
+    display: inline-block;
+	background-color:inherit;
+	height:55%;
+	padding-left:10%;
+}
+
+#profile{
+	font-size:70%;
+	background-color:inherit;
+	border:none;
+}
+#profile:hover{}
+
+#profile:hover, #profile:active ,#profile:visited, #profile:link{text-decoration:none;outline:0;}
+
+.dropdown-menu{
+	font-family:"serif";
+    display: none;
+    position: absolute;
+    background-color: #e6f2ff;
+}
+
+.dropdown-menu a{
+	font-size:100%;
+}
+
+
+
+.dropdown-menu a:hover{
+	background-color:#142a52;
+	color:white;
+}
+
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+	position:absolute;
+	right:0px;
+}
+
+.icon {display: none;}
+
+ul.topnav {
+	width:100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+ul.topnav li a:hover {background-color: black;}
+
+ul.topnav li.icon {display: none;}
+
+.ab{color:black;}
+
+a:hover,a:active,a:visited,a:link{outline:0;}
+
+.potter:hover{text-decoration:none;}
+
+.ab:hover{color:white;}
+
+
+@media screen and (max-width:770px) {
+	ul.topnav li:not(:first-child) {display: none;}
+	ul.topnav li.icon {
+    position: absolute;
+	right:0%;
+	display: inline-block;
+  }
+}
+
+@media screen and (max-width:770px) {
+  ul.topnav.responsive {position: relative;z-index:800;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0%;
+    top: 0;
+  }
+  ul.topnav.responsive li {	  
+	float: none;
+	display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+
+	.topnav.responsive{
+		width:70%;
+		padding-bottom:400px;
+		background-color:rgba(0,0,0,1);
+	}
+			
+	ul.topnav{
+		width:70%;
+	}
+	
+	.bar2{
+		width:70%;
+	}
+	.bar2{
+	top:-80px;
+	}
+}
+
+@media screen and (max-width:720px) {
+	
+	ul.topnav li a {
+		padding:0px;
+	}
+	
+	.whole{height:55px}
+	
+	.img1{
+	height:40px;
+	width:40px;
+	}
+
+	.first{
+		margin-top:5px;
+		padding-left:1px;
+		width:36%;
+	}
+	.second{
+		font-size:25px;
+	}
+	.third{	
+		margin-top:5px;
+		padding-right:1px;
+	}
+	
+	.dropdown{
+		margin-top:20%;
+		height:40%;
+	}
+	
+	#profile{
+	margin-top:20px;
+	font-size:50%;
+	}
+}
+
+@media (max-width : 480px) {
+
+	.whole{height:45px}
+	
+	.img1{
+	height:35px;
+	width:35px;
+	}
+
+	.img2{
+	height:35px;
+	width:35px;
+	}
+	
+	.first{
+		margin-top:0px;
+		padding-left:1px;
+		width:33%;
+	}
+	.second{
+		font-size:17px;
+	}
+	.third{	
+		margin-top:0px;
+		padding-right:1px;
+	}
+	
+	#profile{
+	margin-top:5px;
+	font-size:10px;
+	padding:0px;
+	}
+}
+
+@media screen and (min-width:720px) {
+	
+		ul.topnav li a {
+		padding:10px 8px;
+	}
+	
+	.whole{height:80px}
+	
+	.img1{
+		height:60px;
+		width:60px;
+	}
+	
+	.img2{
+		height:60px;
+		width:60px;
+	}
+	
+	.first{
+		margin-top:10px;
+		padding-left:10px;
+		width:40%;
+	}
+	.second{
+		font-size:45px;
+	}
+	.third{	
+		margin-top:10px;
+		padding-right:10px;
+	}
+
+	#profile{
+		margin-top:10px;
+		font-size:20px;
+	}
+	
+	.bar2{
+		width:100%;
+	}
+	
+	ul.topnav{
+		width:100%;
+	}
+}
+@media screen and (min-width:920px) {
+	
+		ul.topnav li a {
+		padding:14px 16px;
+	}
+	
+	.whole{height:80px}
+	
+	.img1{
+		height:60px;
+		width:60px;
+	}
+	
+	.img2{
+		height:60px;
+		width:60px;
+	}
+	
+	.first{
+		margin-top:10px;
+		padding-left:10px;
+		width:40%;
+	}
+	.second{
+		font-size:45px;
+	}
+	.third{	
+		margin-top:10px;
+		padding-right:10px;
+	}
+
+	#profile{
+		margin-top:10px;
+		font-size:20px;
+	}
+	
+	.bar2{
+		width:100%;
+	}
+	
+	ul.topnav{
+		width:100%;
+	}
+}

@@ -1,0 +1,32 @@
+{% extends 'homepage/base.html' %}
+{%load staticfiles%}
+{% block title %}NEWS{% endblock %}
+{%block css %}
+
+    <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'news/style1.css' %}"/>
+
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    {% if all_news %}
+        {% for information in all_news %}
+			<div class="contentinn">
+				<a href="{% url 'news:detail' information.id%}">
+					<img style="height:65%;width:50%;"  src="{{information.image.url}}"  >
+					<div class="talk-bubble tri-right left-in round">
+						<div class="talktext"><font size="5">
+							<p>{{ information.title }}</p>
+						</font></div>
+					</div>
+				</a>
+			</div>
+			<br><br>
+        {% endfor %}
+    {%endif%}
+</div>
+{% endblock %}

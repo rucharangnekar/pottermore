@@ -1,0 +1,310 @@
+<html lang="en">
+<head>
+
+	{% extends 'homepage/base.html' %}
+
+
+{% load staticfiles %}
+
+	<meta charset="UTF-8">
+	<title>{% block title %}Leaderboard{% endblock %}</title>
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Orbitron|EB+Garamond" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Chewy" />
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lobster" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {%block css%}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'randomq/leaderboard.css' %}"/>
+  {%endblock%}
+</head>
+
+ {% block body %}
+<body>
+
+<div class=content>
+
+<form action="" method="post">
+  {% csrf_token %}
+    <center><h1 class="lead" style="font-size:50px; font-family:Lobster;">Leaderboard</h1></center>
+ <br>
+  <center><p><label>Filter By:</label></p>
+    <br>
+  <input type="checkbox" name="option" value="4"/>
+  <label>Quotes</label>
+  <input type="checkbox" name="option" value="1"  style="margin-left:6%;"/>
+  <label>Spells and Charms</label>
+  <input type="checkbox" name="option" value="2"  style="margin-left:6%;"/>
+  <label>Books</label>
+  <input type="checkbox"  name="option" value="3"  style="margin-left:6%;"/>
+  <label>Movies</label>
+    <br>
+  <center><button type="submit" class="butty">Submit</button></center>
+</center>
+
+</form>
+<div class="v" style="width:50%;position:relative">
+    <div>
+{% if e %}
+
+
+  <table class="leadtable">
+    <tr>
+    <th>Rank</th>
+    <th>Name</th>
+    <th>Score</th>
+    <th>House</th>
+    <th>Spells level</th>
+    <th>Books level</th>
+    <th>Movies level</th>
+    <th>Quotes level</th>
+    <th>Bonus status</th>
+    </tr>
+    {% for o in obje %}
+      {% if o.user == ob.user %}
+        <tr style="background-color:red">
+          <td>{{ o.rank }}</td>
+          <td>{{o.user}}</td>
+          <td>{{o.grandtotal}}</td>
+          <td>{{ o.house }}</td>
+          {% if o.level1 %}
+            <td>{{ o.level1 }}</td>
+          {% else %}
+            <td><h4>All played</h4></td>
+          {% endif %}
+          {% if o.level2 %}
+            <td>{{ o.level2 }}</td>
+          {% else %}
+            <td><h4>All played</h4></td>
+          {% endif %}
+          {% if o.level3 %}
+            <td>{{ o.level3 }}</td>
+          {% else %}
+            <td><h4>All played</h4></td>
+          {% endif %}
+          {% if o.level4 %}
+            <td>{{ o.level4 }}</td>
+          {% else %}
+            <td><h4>All played</h4></td>
+          {% endif %}
+          {% if not o.level1 and not o.level2 and not o.level3 and not o.level4 %}
+            <td>{{ o.bonus }}</td>
+          {% else %}
+            <td>Not activated</td>
+          {% endif %}
+        </tr>
+      {% else %}
+        <tr>
+          <td>{{ o.rank }}</td>
+          <td>{{o.user}}</td>
+          <td>{{o.grandtotal}}</td>
+          <td>{{ o.house }}</td>
+          {% if o.level1 %}
+            <td>{{ o.level1 }}</td>
+          {% else %}
+            <td><h4>All played</h4></td>
+          {% endif %}
+          {% if o.level2 %}
+            <td>{{ o.level2 }}</td>
+          {% else %}
+            <td><h4>All played</h4></td>
+          {% endif %}
+          {% if o.level3 %}
+            <td>{{ o.level3 }}</td>
+          {% else %}
+            <td><h4>All played</h4></td>
+          {% endif %}
+          {% if o.level4 %}
+            <td>{{ o.level4 }}</td>
+          {% else %}
+            <td><h4>All played</h4></td>
+          {% endif %}
+          {% if not o.level1 and not o.level2 and not o.level3 and not o.level4 %}
+            <td>{{ o.bonus }}</td>
+                    {% else %}
+            <td>Not activated</td>
+
+          {% endif %}
+        </tr>
+
+      {% endif %}
+    {% endfor %}
+  </table>
+{% else %}
+<table>
+  <tr>
+    <th>Rank</th>
+    <th>Name</th>
+    <th>Score</th>
+    <th>House</th>
+    <th>Level1</th>
+    <th>Level 2</th>
+    <th>Level 3</th>
+    <th>Current level</th>
+  </tr>
+  {% if d %}
+
+    {% for o in obje %}
+      {% if o.user == ob.user %}
+        <tr style="background-color:red;color:white;">
+          <td>{{ o.rank }}</td>
+          <td>{{o.user}}</td>
+          <td>{{o.totals}}</td>
+          <td>{{o.house}}</td>
+          <td>{{o.score1}}</td>
+          <td>{{o.score11}}</td>
+          <td>{{o.score12}}</td>
+          {% if o.level1 %}
+            <td>{{ o.level1 }}</td>
+          {% else %}
+            <td><h4>All played</h4></td>
+          {% endif %}
+        </tr>
+      {% else %}
+        <tr>
+          <td>{{ o.rank }}</td>
+          <td>{{o.user}}</td>
+          <td>{{o.totals}}</td>
+          <td>{{o.house}}</td>
+          <td>{{o.score1}}</td>
+          <td>{{o.score11}}</td>
+          <td>{{o.score12}}</td>
+          {% if o.level1 %}
+            <td>{{ o.level1 }}</td>
+          {% else %}
+            <td><h4>All played</h4></td>
+          {% endif %}
+
+        </tr>
+      {% endif %}
+    {% endfor %}
+
+  {% endif %}
+  {% if c %}
+
+    {% for o in obje %}
+      {% if o.user == ob.user %}
+        <tr style="background-color:red">
+          <td>{{ o.rank }}</td>
+          <td>{{o.user}}</td>
+          <td>{{o.totals2}}</td>
+          <td>{{o.house}}</td>
+          <td>{{o.score2}}</td>
+          <td>{{o.score21}}</td>
+          <td>{{o.score22}}</td>
+          {% if o.level2 %}
+            <td>{{ o.level2 }}</td>
+          {% else %}
+            <td><h4>All played</h4></td>
+          {% endif %}
+        </tr>
+      {% else %}
+        <tr>
+          <td>{{ o.rank }}</td>
+          <td>{{o.user}}</td>
+          <td>{{o.totals2}}</td>
+          <td>{{o.house}}</td>
+          <td>{{o.score2}}</td>
+          <td>{{o.score21}}</td>
+          <td>{{o.score22}}</td>
+          {% if o.level2 %}
+            <td>{{ o.level2 }}</td>
+          {% else %}
+            <td><h4>All played</h4></td>
+          {% endif %}
+        </tr>
+      {% endif %}
+
+    {% endfor %}
+
+  {% endif %}
+  {% if b %}
+
+    {% for o in obje %}
+      {% if o.user == ob.user %}
+        <tr style="background-color:red">
+          <td>{{ o.rank }}</td>
+          <td>{{o.user}}</td>
+          <td>{{o.totals3}}</td>
+          <td>{{o.house}}</td>
+          <td>{{o.score3}}</td>
+          <td>{{o.score31}}</td>
+          <td>{{o.score32}}</td>
+          {% if o.level3 %}
+            <td>{{ o.level3 }}</td>
+          {% else %}
+            <td><h4>All played</h4></td>
+          {% endif %}
+        </tr>
+      {% else %}
+        <tr>
+          <td>{{ o.rank }}</td>
+          <td>{{o.user}}</td>
+          <td>{{o.totals3}}</td>
+          <td>{{o.house}}</td>
+          <td>{{o.score3}}</td>
+          <td>{{o.score31}}</td>
+          <td>{{o.score32}}</td>
+          {% if o.level3 %}
+            <td>{{ o.level3 }}</td>
+          {% else %}
+            <td><h4>All played</h4></td>
+          {% endif %}
+        </tr>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% if a %}
+
+    {% for o in obje %}
+      {% if o.user == ob.user %}
+        <tr style="background-color:red">
+          <td>{{ o.rank }}</td>
+          <td>{{o.user}}</td>
+          <td>{{o.totals4}}</td>
+          <td>{{o.house}}</td>
+          <td>{{o.score4}}</td>
+          <td>{{o.score41}}</td>
+          <td>{{o.score42}}</td>
+          {% if o.level4 %}
+            <td>{{ o.level4 }}</td>
+          {% else %}
+            <td><h4>All played</h4></td>
+          {% endif %}
+        </tr>
+      {% else %}
+        <tr>
+          <td>{{ o.rank }}</td>
+          <td>{{o.user}}</td>
+          <td>{{o.totals4}}</td>
+          <td>{{o.house}}</td>
+          <td>{{o.score4}}</td>
+          <td>{{o.score41}}</td>
+          <td>{{o.score42}}</td>
+          {% if o.level4 %}
+            <td>{{ o.level4 }}</td>
+          {% else %}
+            <td><h4>All played</h4></td>
+          {% endif %}
+        </tr>
+      {% endif %}
+
+    {% endfor %}
+
+  {% endif %}
+
+</table>
+{% endif %}
+    </div>
+</div>
+
+  <br><br><br>
+</div>
+
+</body>
+{% endblock %}
+
+

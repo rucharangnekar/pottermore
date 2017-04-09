@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+
+	{% extends 'homepage/base.html' %}
+
+{% load staticfiles %}
+
+	<meta charset="UTF-8">
+	<title>{% block title %}Home{% endblock %}</title>
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Orbitron|EB+Garamond|Oswald" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {%block css%}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'randomq/style2.css' %}"/>
+  {%endblock%}
+</head>
+
+ {% block body %}
+<div class="content">
+<style>
+
+         h2{
+        text-align:center;
+    color: #A8D67F;
+    text-shadow: 1px 1px 2px black, 0 0 25px #B26A89, 0 0 5px #DA035E;
+}
+       h3{
+        text-align:center;
+    text-shadow: 2px 2px 3px #08A5A2;
+
+}
+
+
+
+</style>
+<h2>You scored:{{ total_score }}</h2>
+<form action="{% url 'hogwarts:why_to_reg' %}" method="post">
+    {% csrf_token %}
+    <h3>Your score won't be saved as you aren't a registered user at Hogwarts ,to get your ticket to the hogwarts express Pleaase register</h3><br>
+ <center> <img src="{% static 'randomq/imga/express.jpeg' %}" style="width:50%;height:50%"></center><br>
+    <center><button class="button" type="submit" style="width:200px">Why to Register</button></center>
+</form>
+</div>
+{% endblock %}
+
+

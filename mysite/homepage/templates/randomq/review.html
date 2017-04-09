@@ -1,0 +1,65 @@
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+
+	{% extends 'homepage/base.html' %}
+
+{% load staticfiles %}
+
+	<meta charset="UTF-8">
+	<title>{% block title %}Sorting Quiz{% endblock %}</title>
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {%block css%}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'randomq/style2.css' %}"/>
+    {% endblock %}
+{% block body %}
+<div class="content">
+    <style>
+        h3{
+        text-align:center;
+    text-shadow: 2px 2px 3px #08A5A2;
+
+}
+
+    body{
+height:800px;
+}
+
+p{
+
+    text-align:center;
+    font-size:30px;
+    text-shadow: 1px 1px 3px purple;
+
+}
+        h1{
+        text-align:center;
+    color: #A8D67F;
+    text-shadow: 1px 1px 2px black, 0 0 25px #B26A89, 0 0 5px #DA035E;
+
+
+}
+
+    </style>
+        <h1>Congratulations,You got sorted in {{ sort }}</h1>
+
+        <h3>You scored:{{ total_score }}</h3>
+
+
+
+<a href="{% url 'homepage:index' %}"><img src="{% static 'homepage/images/train ticket.jpeg' %}" style="width:45%;height:40%;margin-left:35%"></a>
+    <h1 style="text-align:center;
+    color: #A8D67F;
+    text-shadow: 1px 1px 2px black, 0 0 25px #B26A89, 0 0 5px #DA035E;">Click on the ticket to begin your journey through hogwarts</h1>
+
+
+
+   <!-- <form action="#" >
+    <h3>Please go back and complete the quiz</h3>
+    <button type="submit" value="Back">Back</button>
+    </form>-->
+</div>
+{% endblock %}

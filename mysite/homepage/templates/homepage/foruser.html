@@ -1,0 +1,40 @@
+<html>
+<head>
+	{% extends 'homepage/base.html' %}
+    {% load staticfiles %}
+	{% block css %}
+	<link rel="stylesheet" type="text/css" href="{% static 'homepage/login.css' %}">
+	{% endblock %}
+	{% block title %}PotterHead-Login{% endblock %}
+</head>
+{%block body%}
+<body>
+	<div class="content">
+   		<div id="Container_body">
+    		<div>
+				<h1 class="form_title">Login</h1>
+    		</div>
+    		<hr>
+    		<pre></pre>
+			<form   action="{% url 'homepage:forgotpassword'%}" method="post" enctype="multipart/form-data" id="form">{% csrf_token %}
+				<div id="username_div">
+					<input type="text" name="username" id="id_username" placeholder="Username"  required></input><br>
+				</div>
+				<pre></pre>
+				<pre></pre>
+                					<div required>
+						<input type="text" name="email" value=""  placeholder="Your Email" class="input_email" id="id_email">
+					</div>
+				<button type="submit" class="button">Submit</button>
+				<pre></pre>
+			</form>
+
+		</div>
+	</div>
+	{% endblock %}
+</body>
+</html>
+
+<!--{% if error_message %}
+{{form.error_message}}
+{% endif %}-->

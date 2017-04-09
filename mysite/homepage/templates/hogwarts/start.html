@@ -1,0 +1,80 @@
+{%extends 'homepage/base.html' %}
+
+{%block title%} JOURNEY
+{%endblock%}
+
+{%block css%}
+{%load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'hogwarts/style.css' %}"/>
+
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Indie+Flower" />
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Pacifico" />
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Shadows+Into+Light" />
+
+
+{%endblock %}
+
+
+{%block body%}
+
+<!--<img style="height:450px;width:749px;" src="{% static 'hogwarts/images/entry.gif' %}"-->
+
+<body>
+<div id="title" class="slide header">
+  <br>
+  <h1>After all the damage done in the great battle of Hogwarts...</h1>
+</div>
+
+<div id="slide1" class="slide" style="background-image: url("images/entry.gif");">
+  <div class="title">
+    <p>Hogwarts still stands mighty and tall, as magnificent as ever.</p>
+  </div>
+</div>
+
+<div id="slide2" class="slide" style="background-image: url("images/hall.gif");">
+  <div class="title">
+    <p>The Great hall still holds the welcoming Sorting Ceremony</p>
+  </div>
+ </div>
+
+<div id="slide3" class="slide" style="background-image: url("images/lec.jpg");">
+  <div class="title">
+    <p>The lecture halls still echo with the sounds of students' chatter</p>
+  </div>
+   <img src="{% static 'hogwarts/images/potions.jpg' %}">
+  <img src="{% static 'hogwarts/images/charms.gif' %}">
+
+</div>
+
+<div id="slide4" class="slide">
+  <div class="title"  style="background-image: url("images/forest.jpg");">
+    <p>The Forbidden Forest still stands, dark and unwelcoming</p>
+  </div>
+ </div>
+
+<div id="slide5" class="slide" style="background-image: url("images/stairs.jpg");">
+  <div class="title">
+    <p>Life still continues with some degree of normalcy</p>
+  </div>
+ </div>
+
+
+
+<div id="end_title" class="slide footer">
+  <h1>...Hogwarts will always be there to welcome you home.</h1>
+<img class ="imaging" src="{% static 'hogwarts/images/finger1.gif' %}">
+  <br>
+
+
+  </div>
+
+<div class="check">
+<div class="entry">
+
+		<a class="okay" href="{% url 'homepage:index' %}" style="text-decoration:none;color:white background-color:110433;">Join Hogwarts Today! </a>
+	</div>
+</div>
+</body>
+
+{%endblock%}
+

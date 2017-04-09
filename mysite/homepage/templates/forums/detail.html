@@ -1,0 +1,107 @@
+{% extends 'homepage/base.html' %}
+
+{% block title %}
+
+FORUMS- {{forum.pk}}
+
+{% endblock %}
+
+{% block css%}
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'forums/styling.css' %}"/>
+
+{% endblock %}
+
+
+{% block body %}
+<div class="content">
+    <div class="container-fluid songs-container">
+
+    <div class="row">
+
+        <!-- Left Forum Info -->
+        <div class="col-sm-4 col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h1>{{ forum.name }} <small>{{ forum.description }}</small></h1>
+                    <h5>Posts: {{counter}}</h5>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+    </div>
+
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+<center>
+            <ul class="nav nav-pills" style="margin-bottom: 10px;">
+                 <li role="presentation" class="active"><a href="{% url 'forums:create_post' forum.id %}">Add a New Post</a></li>
+
+            </ul>
+</center>
+
+    {% for posts in forum.threaddb_set.all %}
+        {% if not posts.flag %}
+        <div class="panel panel-default">
+
+          <div class="panel-body" style="margin-bottom:-85px;">
+              <br>
+              {{posts.post}}
+            <hr>
+
+              <p>Username: {{ posts.user_name }}</p>
+              <p style="text-align:right;">{{ posts.date}} {{ posts.time }}</p>
+              <p style="text-align:right">
+                                      <h3>{{ posts.like }}likes</h3><a href="{% url 'forums:like' posts.postid %}">
+          <span class="glyphicon glyphicon-thumbs-up"></span>
+        </a>
+
+
+                  <a href="{% url 'forums:delet' posts.postid %}">
+          <span class="glyphicon glyphicon-thumbs-down"></span>
+        </a>
+                      <a href="#" data-toggle="modal" data-target="#myModal">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog " >
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Do you want to delete?</h4>
+        </div>
+        <div class="modal-footer">
+          <a href="{% url 'forums:delete' posts.postid %}">yes</a>
+
+        </div>
+      </div>
+
+    </div>
+      </div>
+
+
+</p>
+              {% endif %}
+
+
+          </div>
+            <br><br><br>
+        </div>
+
+    {% endfor %}
+
+
+
+</div>
+
+{% endblock %}

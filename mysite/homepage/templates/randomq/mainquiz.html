@@ -1,0 +1,137 @@
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+
+	{% extends 'homepage/base.html' %}
+
+{% load staticfiles %}
+
+	<meta charset="UTF-8">
+	<title>{% block title %}Sorting Quiz{% endblock %}</title>
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {%block css%}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'randomq/style3.css' %}"/>
+    {% endblock %}
+</head>
+{% block body %}
+    <div class="content">
+<body >
+<style>.mySlides {display:none;}
+</style>
+    <div style="font-family:'Pacifico';margin-top:5%;margin-left:40%;color:#E82410">
+        <h2>O.W.L.S</h2>
+    </div>
+    <!--<center><img src="{% static 'randomq/imga/OWLS.jpeg' %}" style="height:900px;width:50%;" ></center>-->
+
+<center><div class="w3-content w3-section" style="max-width:500px">
+  <img class="mySlides" src="{% static 'hogwarts/images/books.jpg' %}" style="width:100%;height:50%">
+  <img class="mySlides" src="{% static 'hogwarts/images/charms.gif' %}" style="width:100%;height:50%">
+  <img class="mySlides" src="{% static 'hogwarts/images/movie.jpg' %}" style="width:100%;height:50%">
+      <img class="mySlides" src="{% static 'hogwarts/images/quote.jpg' %}" style="width:100%;height:50%">
+
+</div></center>
+
+
+       <center><h2 >Category of quiz</h2><br>
+                   <input type="checkbox" onclick="dis()" id="a"><h4>Spells and charms</h4></input>
+                               <input type="checkbox" onclick="diss1()" id="b"><h4>Movies</h4></input>
+                               <input type="checkbox" onclick="diss2()" id="c"><h4>Books</h4></input>
+                      <input type="checkbox" onclick="diss3()" id="d"><h4>Quotes</h4></input></center>
+
+        {% if la %}
+            <h2>You have completed the books category</h2>
+        {% endif %}
+        {% if lb %}
+            <h2>You have completed the movies category</h2>
+        {% endif %}
+                {% if lc %}
+            <h2>You have completed the quotes category</h2>
+        {% endif %}
+                {% if l %}
+            <h2>You have completed the spells category</h2>
+        {% endif %}
+
+<center>
+<form action="" name="form12" method="post">
+     {% csrf_token %}
+         <button id="1" onClick="return reply_click()" class="button">Challenge now</button>
+    <!--<button id="2" onClick="return reply_clicks()">Play for fun</button>-->
+
+
+         </form>
+    </center>
+</div>
+</div>
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}
+    x[myIndex-1].style.display = "block";
+    setTimeout(carousel, 4000); // Change image every 2 seconds
+}
+</script>
+
+    <script type="text/javascript">
+    function dis(){document.getElementById("d").checked = false;  document.getElementById("b").checked = false; document.getElementById("c").checked = false;}
+function diss1(){  document.getElementById("d").checked = false;  document.getElementById("a").checked = false; document.getElementById("c").checked = false;}
+function diss2(){document.getElementById("d").checked = false;  document.getElementById("a").checked = false; document.getElementById("b").checked = false;}
+function diss3(){  document.getElementById("b").checked = false;  document.getElementById("a").checked = false; document.getElementById("c").checked = false;}
+
+    function reply_click()
+    {
+    var x = document.getElementById("a").checked;
+    if(x==true)
+    {
+    document.form12.action="{% url 'randomq:spells' f1  %}";
+    }
+        var y = document.getElementById("b").checked;
+    if(y==true)
+    {
+    document.form12.action="{% url 'randomq:movies' f1  %}";
+    }
+        var z = document.getElementById("c").checked;
+    if(z==true)
+    {
+    document.form12.action="{% url 'randomq:books' f1  %}";
+    }        var o = document.getElementById("d").checked;
+    if(o==true)
+    {
+    document.form12.action="{% url 'randomq:quotes' f1  %}";
+    }
+
+    if(x==false&&y==false&&o==false&&z==false)
+    {
+    alert("Please enter a choice");
+    return false;
+    }
+    else
+    return true;
+    }
+
+
+    </script>
+
+</body>
+{% endblock %}
+
+
+
+
+
+
+

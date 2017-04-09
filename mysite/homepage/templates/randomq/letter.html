@@ -1,0 +1,30 @@
+{% extends 'homepage/base.html' %}
+
+{% load staticfiles %}
+	<meta charset="UTF-8">
+	<title>{% block title %}Welcome Letter{% endblock %}</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lobster|Orbitron|EB+Garamond" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+{%block css%}
+	<link rel="stylesheet" type="text/css" href="{% static 'randomq/letter.css' %}"/>
+{%endblock%}
+
+
+
+{% block body %}
+<body>
+<div class="content">
+    <h2 >YOUR LETTER</h2>
+    <p >After battling Dudley and fending off various attacks, you have finally received your letter through owlpost.
+Click it to open and see what it says...
+</p>
+         <a href="{% url 'randomq:bas' %}" ><img src="{% static 'randomq/imga/let.jpeg' %}" class="let" style="width:40%;height:40%;margin-left:30%" alt="hey">
+		 </a>
+</div>
+</body>
+
+{% endblock %}
+

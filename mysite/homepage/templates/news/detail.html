@@ -1,0 +1,51 @@
+{% extends 'homepage/base.html' %}
+{% load staticfiles %}
+{% block title %}NEWS ITEM {{information.id}}{% endblock %}
+
+{%block css%}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'news/style.css' %}"/>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+	<h1 style="background-color:{{information.background_color}};">{{information.title}}</h1>
+	<center><img src="{{information.image.url}}" class ="img-responsive main_img"></center>
+	<br><br>
+	<div class="dates">
+		<p><center>{{information.date}}</center></p>
+	</div>
+	<br>
+	<div class="maintext">
+		<p>
+			{{information.main_text}}
+		</p>
+	</div>
+	<br><br>
+	<div class="article11">
+		<p>
+			{{information.article1}}
+		</p>
+	</div>
+	<br>
+	<br>
+	<img src="{{information.image1.url}}" class ="img-responsive img">
+	<div class="dates">
+		<p><center>{{information.caption1}}</center></p>
+	</div>
+	<br><br>
+	<div class="article11">
+		<p>
+			{{information.article1}}
+		</p>
+	</div>
+
+	<br><br>
+
+	<br><br>
+	<div class="link">
+		<a href="{% url 'news:index' %}">GO BACK TO NEWS </a>
+	</div>
+	<br><br>
+</div>	
+{%endblock%}

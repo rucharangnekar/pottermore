@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+
+	{% extends 'homepage/base.html' %}
+
+{% load staticfiles %}
+
+	<meta charset="UTF-8">
+
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Orbitron|EB+Garamond|Oswald" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {%block css%}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'randomq/style3.css' %}"/>
+  {%endblock%}
+</head>
+
+{%block title%} Welcome Letter
+{%endblock%}
+
+ {% block body %}
+<style>
+    h3{
+		text-align:center;
+		color: #A8D67F;
+		text-shadow: 1px 1px 2px black, 0 0 25px #B26A89, 0 0 5px #DA035E;
+		font-family: 'Oswald', sans-serif;
+		font-size:50px;	
+		font-weight:bold;
+		transition: all .5s;
+		transition-property: all;
+		transition-duration: 0.5s;
+		transition-timing-function: ease;
+		transition-delay: 0s;
+	}
+	h3:hover{
+		font-size:55px;
+	}
+	
+	.button{
+	background-color:black;
+	z-index:70px;
+	color:red;
+	font-size:30px;
+	padding: 5px 5px 5px 5px;
+	border-color:black;
+	border: 1px solid black;
+	opacity:0.5;
+	font-weight:bold;
+	transition: all .5s;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+	margin:20px 20px 20px 20px;
+	}
+
+	.button:hover, .button:active{
+		box-shadow: 10px 10px 5px grey;
+		opacity:1.0;
+	}
+</style>
+<body style="background-image:url('imga/bg101.jpg');">
+<div class="content"><center>
+    <h3 >Celebrating years of magic!!</h3>
+	<img src="{% static 'randomq/imga/welcome.jpeg' %}" class="let" style="width:50%;height:100%;" alt="hey"><br>
+    <a href="{% url 'randomq:basic' %}" ><button class="button" type="button">Get Sorted</button></a></center>
+</div>
+</body>
+{% endblock %}
+
+

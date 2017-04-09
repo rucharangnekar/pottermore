@@ -1,0 +1,82 @@
+body{
+	background: url("images/hp5.jpg");
+    background-position: -500px -600px; 
+	background-size:100% 100%;
+	background-attachment:fixed;
+}
+
+.content{
+}
+
+#container_body{
+	font-weight:bold;
+	background:url("images/hp5.jpg");
+	opacity: 0.75;
+	font-family:Tahoma, Geneva, sans-serif;
+	padding:2%;
+	color:black;
+	width:40%;
+	background-color:#000000;
+	margin:auto;
+	margin-bottom:170px;
+	box-shadow:0 0 3px #999; 
+	text-align:center;
+}
+
+pre{
+	background-color:inherit;
+	border-color:#000000;
+}
+
+.form_title{
+	text-align:center;
+	font-size:180%;
+	text-shadow: 0.5px 0.5px #000000;
+	color:#FFFFFF;
+}
+
+#id_username{
+	text-align:center;
+	width:75%;
+	font-size:140%;
+}
+
+#id_password {
+	text-align:center;
+ 	width:75%;
+    font-size:140%;
+}
+
+.button{
+    background-color: #8A2BE2;
+	font-size:150%;
+	padding: 1% 1% 1% 1%;
+	border-color:inherit;
+	border: 1px solid black;
+	opacity:0.5;
+	width:30%;
+	transition: all .5s;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+
+.button:hover, .button:active{
+    box-shadow: 5px 5px 2px #8A2BE2;
+	opacity:1.0;
+}
+
+#sign{
+	color:white;
+	text-align:center;
+}
+
+.alink :link{
+    color:white;
+    text-align: left; 
+}
+
+.alink:hover{
+	color:red;
+}

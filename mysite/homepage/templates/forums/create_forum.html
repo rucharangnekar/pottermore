@@ -1,0 +1,57 @@
+{% extends 'homepage/base.html' %}
+
+{% block title %}
+
+FORUMS- CREATE FORUM
+
+{% endblock %}
+
+{% block css%}
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'forums/styling.css' %}"/>
+
+{% endblock %}
+
+
+
+{% block body %}
+<div class="content">
+<div class="container-fluid">
+
+        <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Forums</h3>
+                    <p>We love forums</p>
+                    <h3>You can either add post to an existing forum or create new forums</h3>
+                    <p>First, create a new forum. Then we'll see what to do.</p>
+
+                </div>
+            </div>
+
+
+
+        <div class="col-sm-12 col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Add a New Forum</h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'forums/form_template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+</div>
+{% endblock %}

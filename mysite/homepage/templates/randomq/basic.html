@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+	
+	{% extends 'homepage/base.html' %}
+
+{% load staticfiles %}
+
+	<meta charset="UTF-8">
+	<title>{% block title %}Home{% endblock %}</title>
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {%block css%}
+
+  <link rel="stylesheet" type="text/css" href="{% static 'randomq/style1.css' %}"/>
+  {%endblock%}
+</head>
+
+ {% block body %}
+         <body background="{% static 'homepage/images/back1.jpeg' %}" width="100%" height="100%" alt="hey">
+
+ <div class="content">
+{% if not flag %}
+<div class="title1">
+<p>Wear the Sorting Hat</p>
+</div>
+<div class="main">
+
+<p><b>How well do you know the wizarding world?</b></p>
+<img src="{% static 'homepage/images/snitch.jpeg' %}" class="imag" ><br>
+{% if f %}
+    <h2>You need to get sorted before beginning the quiz</h2>
+{% endif %}
+{% if f1 %}
+    <h2>You need to get sorted before creating the forums</h2>
+{% endif %}
+
+    <form action="{% url 'randomq:q' %}" method="post">
+        {% csrf_token %}
+                <input type="checkbox" name="option" id="a" value="1" onclick="dis1()" />
+        <label >Gryffindor</label><br />
+
+        <input type="checkbox" id="b" name="option" onclick="dis2()"  value="2" />
+        <label>Slytherin</label><br />
+
+        <input type="checkbox" id="c" name="option" onclick="dis3()" value="3" />
+        <label>Ravenclaw</label><br />
+        <input type="checkbox" name="option" onclick="dis4()" id="d" value="4" />
+        <label>Hufflepuff</label><br />
+<button type="submit" value="submit" onclick="return dis()" class="button1">Begin</button>
+
+</form>
+
+    <!--<a href="{% url 'randomq:q' %}" class="start">Start</a>-->
+
+</div>
+<script>
+function dis()
+{
+    var x = document.getElementById("a").checked;
+    var y = document.getElementById("b").checked;
+    var z = document.getElementById("c").checked;
+    var u = document.getElementById("d").checked;
+    if(x==false&&y==false&&z==false&&u==false)
+    {
+    alert("Please enter a choice");
+    return false;
+    }
+    else
+    return true;
+}
+function dis1(){document.getElementById("d").checked = false;  document.getElementById("b").checked = false; document.getElementById("c").checked = false;}
+function dis2(){  document.getElementById("d").checked = false;  document.getElementById("a").checked = false; document.getElementById("c").checked = false;}
+function dis3(){document.getElementById("d").checked = false;  document.getElementById("a").checked = false; document.getElementById("b").checked = false;}
+function dis4(){  document.getElementById("b").checked = false;  document.getElementById("a").checked = false; document.getElementById("c").checked = false;}
+
+</script>
+{% endif %}
+{% if flag %}
+
+         <center><h2 style="color:red">Oops you have been already been sorted </h2></center>
+{% endif %}
+</div>
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+ </body>
+<!--{% load static %}<img src="{% static "imga/dobby.png" %}">-->
+{% endblock %}
+
+

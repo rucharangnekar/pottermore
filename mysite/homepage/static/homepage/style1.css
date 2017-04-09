@@ -1,0 +1,284 @@
+
+body{
+	margin-top:170px;
+}
+
+.header{
+	top:0px;
+	position:fixed;
+	width:100%;
+	z-index:60;
+}
+
+.whole{	
+	z-index:60;
+	background-color:#008ae6;
+	color:white;
+	font-family:'Pacifico',cursive;
+	height:80px;
+	width:100%;
+}
+#PotterHead1{
+	background-color:#008ae6;
+	padding: 3px 3px 3px 3px;
+	border: 1px solid #008ae6;
+	color:white;
+}
+#PotterHead{
+	background-color:#008ae6;
+	padding: 3px 3px 3px 3px;
+	border: 1px solid #008ae6;
+	color:white;
+}
+
+#PotterHead:hover{
+	text-decoration:none;
+	text-shadow: 7px 7px 10px grey;
+}
+
+.img1{
+	height:50px;
+	width:50px;
+}
+
+.img2{
+	height:50px;
+	width:50px;
+}
+
+.first{
+	float:left;
+	width:36%;
+	margin-top:10px;
+	padding-left:10px;
+}
+.second{
+	font-size:50px;
+	display:inline;
+}
+.third{
+	float:right;		
+	margin-top:10px;
+	padding-right:10px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+	background-color:#008ae6;
+	padding-left:5px;
+	height:45px;
+}
+
+#profile{
+	font-size:20px;
+	background-color:#008ae6;
+	border:none;
+}
+#profile:hover{
+	text-decoration:none;
+	text-shadow: 15px 15px 25px grey;
+}
+
+#profile:hover, #profile:active ,#profile:visited, #profile:link{text-decoration:none;outline:0;}
+
+.dropdown-menu{
+	font-family:"serif";
+    display: none;
+    position: absolute;
+    background-color: #e6f2ff;
+    min-width: 160px;
+}
+
+.dropdown-menu a:hover{
+	background-color:#142a52;
+	color:white;
+}
+
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.icon {display: none;}
+
+.push{
+	position:relative;
+	bottom:0px;
+	width:100%;
+	height:110px;
+	background-color:#142a52;
+}
+.ab{color:black;}
+a:hover,a:active,a:visited,a:link{outline:0;text-decoration:none}
+#profile:hover, #profile:active ,#profile:visited, #profile:link{text-decoration:none;outline:0;}
+
+.end{
+text-align:center;
+font-size:20px;
+font-family:cursive;
+}
+.end:hover{background-color:#008ae6;}
+.ab:hover{color:white;}
+
+.content {
+  margin-top:11%;
+  margin-bottom:0px;
+  min-height:100%;
+}
+
+ul.topnav {
+    padding: 0;
+    overflow: hidden;
+    background-color: #142a52;
+}
+
+ul.topnav li {
+    display: inline-block;
+    list-style-type: none;
+}
+
+ul.topnav li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+ul.topnav li a:hover {background-color: #386694;}
+
+ul.topnav li.icon {display: none;}
+
+@media screen and (max-width:680px) {
+  ul.topnav li:not(:first-child) {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width:680px) {
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width:720px) {
+	body{margin-top:55px;}
+
+	.whole{height:55px}
+	
+	.img1{
+	height:40px;
+	width:40px;
+	}
+
+	.img2{
+	height:40px;
+	width:40px;
+	}
+	
+	.first{
+		margin-top:5px;
+		padding-left:1px;
+		width:33%;
+	}
+	.second{
+		font-size:25px;
+	}
+	.third{	
+		margin-top:5px;
+		padding-right:1px;
+	}
+	
+	#profile{
+	margin-top:5px;
+	font-size:20px;
+	}
+}
+
+@media (max-width : 480px) {
+
+	body{margin-top:45px;}
+
+	.whole{height:45px}
+	
+	.img1{
+	height:25px;
+	width:25px;
+	}
+
+	.img2{
+	height:25px;
+	width:25px;
+	}
+	
+	#profile{
+	margin-top:5px;
+	font-size:10px;
+	padding:0px;
+	}
+	
+	.first{
+		margin-top:5px;
+		padding-left:1px;
+		width:30%;
+	}
+	.second{
+		font-size:17px;
+	}
+	.third{	
+		margin-top:5px;
+		padding-right:1px;
+	}
+}
+
+@media screen and (min-width:720px) {
+	
+	body{margin-top:80px;}
+	
+	.whole{height:80px}
+	
+	.img1{
+		height:60px;
+		width:60px;
+	}
+	
+	.img2{
+		height:60px;
+		width:60px;
+	}
+	
+	.first{
+		margin-top:10x;
+		padding-left:10px;
+		width:40%;
+	}
+	.second{
+		font-size:45px;
+	}
+	.third{	
+		margin-top:10px;
+		padding-right:10px;
+	}
+	
+
+	#profile{
+	margin-top:10px;
+	font-size:20px;
+	}
+}

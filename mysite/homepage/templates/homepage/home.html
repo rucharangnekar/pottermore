@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% extends 'homepage/homebase.html' %}
+
+  {% block title %}PotterHead{% endblock %}
+  {% block css %}
+    {% load staticfiles %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" type="text/css" href="{% static 'homepage/homecss.css' %}">
+  {% endblock %}
+ </head>
+<body>
+{% block body %}
+
+
+<div id="container1" style="height:100%;width:100%;">
+	<center>
+	<div id="myCarousel" class="carousel slide" style="height:100%;width:100%;">
+		<ol class="carousel-indicators" >
+			<li class="item1 active"></li>
+			<li class="item2"></li>
+			<li class="item3"></li>
+			<li class="item4"></li>
+			<li class="item5"></li>
+			<li class="item6"></li>
+		</ol>
+		
+		<div class="carousel-inner" style="height:100%;width:100%;text-align:center;">      
+
+			<div class="item active" id="slide1" style="height:100%;width:100%;text-align:center;" >
+				<img style="height:100%; width:100%;" src="{% static 'homepage/images/battle.png' %}" alt="tour" class="imge1 image-responsive"></img>
+				<div class="carousel-caption" style="width:100%;text-align:center;">
+					<a href="{% url 'hogwarts:index' %}" style="width:100%;"><button type="button" class="button"><div>Hogwarts Tour</div></button></a>
+					<p class="par">See for yourself how much Hogwarts has changed since the Great Wizarding War!</p>
+				</div>
+			</div>			
+			
+			<div class="item" id="slide2" style="height:100%;width:100%;">
+				<img style="height:100%; width:100%;" src="{% static 'homepage/images/why.jpg' %}" alt="tour" class="imge2 image-responsive"></img>
+				<div class="carousel-caption" style="width:100%;">
+					<a href="{% url 'hogwarts:why_to_reg' %}"><button type="button" class="button"><div>Why should I register?</div></button></a>
+					<p class="par">Check out the perks of being a registered member of Hogwarts!</p>
+				</div>
+			</div>
+
+			<div class="item" id="slide3" style="height:100%;width:100%;" >
+				<img style="height:100%; width:100%;" src="{% static 'homepage/images/quiz.jpg' %}" alt="tour" class="imge3 image-responsive"></img>
+				<div class="carousel-caption" style="width:100%;">
+					<a href="{% url 'randomq:visit' %}"><button type="button" class="button"><div>Take a Quiz</div></button></a>
+					<p class="par">Think you are the biggest fan ever?</p>
+				</div>
+			</div>
+
+			<div class="item" id="slide4" style="height:100%;width:100%;">  
+				<img style="height:100%; width:100%;" src="{% static 'homepage/images/sorting2.gif' %}" alt="register" class="imge4 image-responsive"></img>
+				<div class="carousel-caption" style="width:100%;">
+					<a href="{% url 'homepage:reg' %}"><button type="button" class="button"><div>Join Hogwarts</div></button></a>
+					<p class="par">Get yourself registered here</p>
+				</div>
+		    </div>
+
+			<div class="item" id="slide5" style="height:100%;width:100%;">
+				<img style="height:100%; width:100%;" src="{% static 'homepage/images/hp2.jpg' %}" alt="news" class="imge5 image-responsive"></img>
+				<div class="carousel-caption" style="width:100%;">
+					<a href="{% url 'news:index' %}"><button type="button" class="button"><div>Daily Prophet</div></button></a>
+					<p class="par">Get the latest updates here</p>
+				</div>
+			</div>
+
+
+			<div class="item" id="slide6" style="height:100%;width:100%;">
+				<img style="height:100%; width:100%;" src="{% static 'homepage/images/hp5.jpg' %}" alt="forum" class="imge6 image-responsive"></img>
+				<div class="carousel-caption" style="width:100%;">
+					<a href="{% url 'forums:index' %}"><button type="button" class="button"><div>Forum</div></button></a>
+					<p class="par">Got any questions? Speak to other PotterHeads</p>
+				</div>
+			</div>			  
+		</div>   
+	
+		<a class="left carousel-control" data-slide="prev" href="#myCarousel" >
+			<span class="glyphicon glyphicon-chevron-left" id="controll"></span>
+		</a>
+		<a class="right carousel-control" data-slide="next" href="#myCarousel" >
+			<span class="glyphicon glyphicon-chevron-right" id="controlr"></span>
+		</a>
+	</div>
+	</center>
+</div>
+
+<script>
+$(document).ready(function(){   
+	
+	// Activate Carousel
+    $("#myCarousel").carousel({interval: 5000,pause: "hover"});
+  
+    // Enable Carousel Indicators
+    $(".item1").click(function(){
+        $("#myCarousel").carousel(0);
+    });
+    $(".item2").click(function(){
+        $("#myCarousel").carousel(1);
+    });
+    $(".item3").click(function(){
+        $("#myCarousel").carousel(2);
+    });
+    $(".item4").click(function(){
+        $("#myCarousel").carousel(3);
+    });    
+	$(".item5").click(function(){
+        $("#myCarousel").carousel(4);
+    });
+	$(".item6").click(function(){
+        $("#myCarousel").carousel(5);
+    });
+});
+</script>
+
+{% endblock %}
+</body>
+
+</html>

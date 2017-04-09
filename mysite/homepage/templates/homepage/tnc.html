@@ -1,0 +1,18 @@
+{% extends 'homepage/base.html' %}
+{% load staticfiles %}
+{%block css%}
+      <link rel="stylesheet" type="text/css" href="{% static 'homepage/tnc.css' %}">
+{%endblock%}
+
+{%block body%}
+<body>
+<div class="content">
+        <center><img src="{% static 'homepage/images/tnc.jpg' %}" alt="" style="height:18%;width:23%;" class="im"></center><br><br>        
+		<p>
+		Let's be real: Harry Potter fans are unique in many ways. There are so many wonderful fandoms, but something about the Harry Potter fandom just
+		feels a little more magical. Maybe we are biased, because we grew up reading the series, but we think that Harry Potter is a truly special experience, and we are so
+		grateful to have so many fellow fans who feel the same way (right down to the insane fan theories).
+		</p>
+</div>
+</body>
+{%endblock %}

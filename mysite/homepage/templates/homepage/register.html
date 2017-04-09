@@ -1,0 +1,222 @@
+<html>
+<head>
+	{% extends 'homepage/base.html' %}
+	{% load staticfiles %}
+	{% block title %}PotterHead-Register{% endblock %}
+	{% block css %}
+		<link rel='stylesheet' href="{% static 'homepage/reg.css' %}" type='text/css'></link>  
+	{% endblock %}
+</head>
+<body>
+<style>
+#password {
+  height: 44px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-top: 1px solid #c0c0c0;
+  padding: 0 8px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+	 .popover.primary {
+    border-color:#337ab7;
+}
+.popover.primary>.arrow {
+    border-top-color:#337ab7;
+}
+.popover.primary>.popover-title {
+    color:#fff;
+    background-color:#337ab7;
+    border-color:#337ab7;
+}
+.popover.success {
+    border-color:#d6e9c6;
+}
+.popover.success>.arrow {
+    border-top-color:#d6e9c6;
+}
+.popover.success>.popover-title {
+    color:#3c763d;
+    background-color:#dff0d8;
+    border-color:#d6e9c6;
+}
+.popover.info {
+    border-color:#bce8f1;
+}
+.popover.info>.arrow {
+    border-top-color:#bce8f1;
+}
+.popover.info>.popover-title {
+    color:#31708f;
+    background-color:#d9edf7;
+    border-color:#bce8f1;
+}
+.popover.warning {
+    border-color:#faebcc;
+}
+.popover.warning>.arrow {
+    border-top-color:#faebcc;
+}
+.popover.warning>.popover-title {
+    color:#8a6d3b;
+    background-color:#fcf8e3;
+    border-color:#faebcc;
+}
+.popover.danger {
+    border-color:#ebccd1;
+}
+.popover.danger>.arrow {
+    border-top-color:#ebccd1;
+}
+.popover.danger>.popover-title {
+    color:#a94442;
+    background-color:#f2dede;
+    border-color:#ebccd1;
+}
+</style>
+
+	{% block body %}
+<div class="content">
+	<fieldset class="field">
+		<legend ><center><img src="{% static 'homepage/images/emblem.png' %}" class="regimg" ></center></legend>
+		<div id="container">
+			<div id="Container_body">
+				<div>
+					<h1 class="form_title">Sign up</h1>
+				</div>
+				<hr>
+				<form action="{% url 'homepage:regi' %}" onsubmit="return check(this)" method="POST" id="form" enctype="multipart/form-data"> {% csrf_token %}
+					<div class="names">
+						<input type="text" name="first_name" value="" placeholder="fname" id="id_first_name" class="input_name" required>
+						<pre></pre>
+						<input type="text" name="last_name" value="" placeholder="lname" id="id_last_name" class="input_name" required>
+					</div> 
+					<pre></pre>
+					<input type="text" name="username" value="" placeholder="username" id="id_username" class="input_name" required>
+					<pre></pre>
+					{% if fly %}
+						<h4 style="color:white;margin-left:15%"> {{ stri }}</h4>
+					{% endif %}
+					<div required>
+						<input type="text" name="email" value=""  placeholder="Your Email" class="input_email" id="id_email" required>
+					<pre></pre>
+					{% if fly1 %}
+						<h4 style="color:white;margin-left:15%"> {{ stri }}</h4>
+					{% endif %}
+											{% if fly2 %}
+						<h4 style="color:white;margin-left:15%"> {{ stri }}</h4>
+					{% endif %}
+					{% if fly4 %}
+						<h4 style="color:white;margin-left:15%"> {{ stri }}</h4>
+					{% endif %}
+					</div>
+      		  
+					<div required>
+						<input type="password" name="password"  value="" required data-toggle="popover" placeholder="New Password" class="input_password" id="password">
+         			<pre></pre>
+					</div>
+     		        
+					<div >
+						<input type="password" name="cpassword" value=""  placeholder="Confirm Password" class="input_Re_password" id="id_cpassword" required>
+					</div>
+					         			<pre></pre>
+
+					{% if fly3 %}
+						<h4 style="color:white;margin-left:15%"> {{ stri }}</h4>
+					{% endif %}
+					<div>
+						<button type="submit" class="button1" >Sign Up</button><pre></pre>
+					</div>
+				</form>
+				<div id="sign">
+					Already a member?<a href="{% url 'homepage:login' %}">Login</a>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+</div>
+<script>
+    $(document).ready(function(){
+
+//minimum 8 characters
+var bad = /(?=.{8,}).*/;
+//Alpha Numeric plus minimum 8
+var good = /^(?=\S*?[a-z])(?=\S*?[0-9])\S{8,}$/;
+//Must contain at least one upper case letter, one lower case letter and (one number OR one special char).
+var better = /^(?=\S*?[A-Z])(?=\S*?[a-z])((?=\S*?[0-9])|(?=\S*?[^\w\*]))\S{8,}$/;
+//Must contain at least one upper case letter, one lower case letter and (one number AND one special char).
+var best = /^(?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9])(?=\S*?[^\w\*])\S{8,}$/;
+
+$('#password').on('keyup', function () {
+    var password = $(this);
+    var pass = password.val();
+    var passLabel = $('[for="password"]');
+    var stength = 'Weak';
+    var pclass = 'danger';
+    if (best.test(pass) == true) {
+        stength = 'Very Strong';
+        pclass = 'success';
+    } else if (better.test(pass) == true) {
+        stength = 'Strong';
+        pclass = 'warning';
+    } else if (good.test(pass) == true) {
+        stength = 'Almost Strong';
+        pclass = 'warning';
+    } else if (bad.test(pass) == true) {
+        stength = 'Weak';
+    } else {
+        stength = 'Very Weak';
+    }
+
+    var popover = password.attr('data-content', stength).data('bs.popover');
+    popover.setContent();
+    popover.$tip.addClass(popover.options.placement).removeClass('danger success info warning primary').addClass(pclass);
+
+});
+
+$('input[data-toggle="popover"]').popover({
+    placement: 'top',
+    trigger: 'focus'
+});
+
+})
+
+function check(form) {
+    var error = "";
+    var illegalChars = /[\W_]/; // allow only letters and numbers
+	var sp=/[-@./#&+\w]/;
+
+
+    if ((form.password.value.length < 7) || (form.password.value.length > 15)) {
+        error = "The password is the wrong length. \n";
+        alert(error);
+        return false;
+
+    } else if (illegalChars.test(form.password.value)) {
+        error = "The password contains illegal characters.\n";
+        alert(error);
+        return false;
+
+    }
+     else if(form.password.value.search(/[-@./#/7/=\w]/)==-1){
+        error = "The password doesnt contains illegal characters.\n";
+        alert(error);
+        return false;
+	 }
+     else {
+        fld.style.background = 'White';
+           return true;
+    }
+
+}
+
+
+</script>
+
+{% endblock %}
+</body>
+</html>

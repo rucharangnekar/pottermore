@@ -1,0 +1,122 @@
+<html>
+
+<head>
+{% extends "homepage/base.html" %}
+	{%block css%}
+	{%load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'homepage/framework.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'homepage/faq.css' %}">
+	{%endblock%}
+</head>
+
+{%block body%}
+<body background="images/demo/bg3.png">
+<div class="content">
+<div class="wrapper row2">
+  <div id="container" class="clear">
+    <!-- #######################################################################################################  -->
+    
+	<div id="about-us" class="clear">
+      <!-- ###############################-->
+      <section id="about-intro" class="clear">
+        <center><img src="{% static 'homepage/images/faq.png' %}" alt="" style="height:10%;width:30%;"></center><br><br>
+	 </section>
+
+	</div>
+
+
+	<b>
+		<div class="questions">
+			<a href="#q1" class="links">What is MuggleGateway?</a>
+		</div>
+		
+		<div class="questions">
+				<a href="#q2" class="links">Is all the content all by J.K. Rowling?</a>
+		</div>
+		
+		<div class="questions">
+				<a href="#q3" class="links">What devices does the MuggleGateway site work on??</a>
+		</div>
+
+		<div class="questions">
+				<a href="#q4" class="links">When will I learn what my Patronus would be?</a>
+		</div>
+
+		<div class="questions">
+				<a href="#q5" class="links">Does MuggleGateway use affiliate relationships?</a>
+		</div>
+	</b>
+	
+	
+	<br><br>
+	
+	<div class="q" id="q1">
+	<p>What is MuggleGateway?</p>
+	</div>
+	
+	<div class="answer">
+		<p>
+		MuggleGateway is the digital publishing, entertainment and news company and the global digital publisher of The Harry Potter Wizarding World. 
+		As the digital heart of the Wizarding World, mugglegateway.com is dedicated to unlocking the power of imagination.
+		It offers news, features, and articles as well as quizzes and forums.
+		</p>
+	</div>
+	
+	<br>
+	
+	<div class="q" id="q2">
+	<p>Is all the content all by J.K. Rowling?</p>
+	</div>
+	
+	<div class="answer">
+		<p>
+		The content includes entertaining articles and the latest news about the Wizarding World from the MuggleGateway team. The latest news articles
+		from newspapers and magazines continues to be at the heart of the new site.
+		</p>
+	</div>
+	
+	<br>
+	
+	<div class="q" id="q3">
+	<p>What devices does the MuggleGateway site work on?</p>
+	</div>
+	
+	<div class="answer">
+		<p>
+		MuggleGateway can be enjoyed on multiple devices and screen sizes including mobile phones, tablets, laptops and desktops. 
+		</p>
+	</div>
+
+	<br>
+	
+	<div class="q" id="q4">
+	<p>When will I learn what my Patronus would be?</p>
+	</div>
+	
+	<div class="answer">
+		<p>
+			For now, we can't give you an exact date, but we can tell you that the MuggleGateway team is hard at work making this happen.		
+		</p>
+	</div>
+	
+	
+	<br>
+	
+	<div class="q" id="q5">
+	<p>Does MuggleGateway use affiliate relationships?</p>
+	</div>
+	
+	<div class="answer">
+		<p>
+			As of today, MuggleGateway does not use affiliate relationships. If that changes in the future, all users will be notified.		
+		</p>
+	</div>
+	
+</div>
+</div>
+</div>	
+	{%endblock %}
+</body>
+</html>
+
+
